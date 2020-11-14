@@ -29,7 +29,7 @@ describe('functions - searchFunction', () => {
     };
 
     const organizations = searchOrganizations(searchCriteria);
-    expect(organizations.length).toEqual(1);
+    expect(organizations.length).toEqual(2);
   })  
 
   test('It should return an empty list if not found', () => {
@@ -40,4 +40,25 @@ describe('functions - searchFunction', () => {
     const organizations = searchOrganizations(searchCriteria);
     expect(organizations.length).toEqual(0);
   })
+
+  test('It should return a list of organization when matched by cost', () => {
+    const searchCriteria = {
+      cost: 'pAid'
+    };
+
+    const organizations = searchOrganizations(searchCriteria);
+    expect(organizations.length).toEqual(1);
+    expect(organizations[0].name).toEqual('Access Alliance');
+  })
+
+  test('It should return a list of organization when matched by services', () => {
+    const searchCriteria = {
+      serviceOffered: 'peer support'
+    };
+
+    const organizations = searchOrganizations(searchCriteria);
+    expect(organizations.length).toEqual(1);
+    expect(organizations[0].name).toEqual('Across Boundaries');
+  })
+
 });
