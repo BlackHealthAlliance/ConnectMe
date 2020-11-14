@@ -4,15 +4,15 @@ import { connect } from "react-redux"
 
 import { saveSearchValues } from '../state/app';
 
-import Question, { QuestionDropdown, QuestionCheckbox } from "../components/question";
+import Question, { QuestionMulitple } from "../components/question";
 
 import { searchOrganizations } from "../utils/functions";
-import { getCities } from "../utils/data"
+import { getCities, getLanguages, getInsurance, getServices, getPopulation } from "../utils/data"
 
 function Search({ dispatch }) {
   
-  const [questionAnswers, setQuestionAnswers] = useState(new Array(3));
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [questionAnswers, setQuestionAnswers] = useState({});
+  const [currentQuestion, setCurrentQuestion] = useState("city");
 
   const updateAnswers = (id, value) => {
     const updatedAnswers = questionAnswers;
@@ -20,69 +20,64 @@ function Search({ dispatch }) {
     setQuestionAnswers(updatedAnswers);
   }
 
-  const onClickToNextQuestion = (id, value, nextId) => {
+  const onClickToNextQuestion = (id, value, nextId, ) => {
     updateAnswers(id, value);
     setCurrentQuestion(nextId);
   };
 
   const onClickToResults = async (id, value) => {
     updateAnswers(id, value);
-    searchOrganizations({
-      servicesOffered: questionAnswers[0]
+    const results = searchOrganizations({
+      servicesOffered: questionAnswers
     })
-    // dispatch(saveSearchValues(Object.assign({}, questionAnswers)));
+    dispatch(saveSearchValues(Object.assign({}, results)));
     navigate('/results/');
   }
 
   const getCurrentQuestion = () => {
     let questionComponent;
     switch(currentQuestion) {
-      case 0:
+      case "serviceOffered":
       default:
         questionComponent = (<Question
-          id={0}
+          id={currentQuestion}
           headerText="What type of service are you looking for?"
-          optionsArray={[
-            "Crisis Support",
-            "Individual Counselling",
-            "Peer Counselling"
-          ]}
-          next={1}
+          optionsArray={getServices()}
+          next="resource"
           onClickHandler={onClickToNextQuestion}/>);
         break;
-      case 1:
+      case "resource":
         questionComponent = (<Question
-          id={1}
+          id={currentQuestion}
           headerText="Which type of resource would you prefer?"
-          optionsArray={[
-            "Free",
-            "Paid",
-            "Covered by OHIP",
-            "Accepts Insurance"
-          ]}
-          next={2}
+          optionsArray={getInsurance()}
+          next="populationServed"
           onClickHandler={onClickToNextQuestion}/>);
         break;
-      case 2:
+      case "populationServed":
+        questionComponent = (<QuestionMulitple
+          id={currentQuestion}
+          headerText="Are you looking for resources that serve any of the following populations? (select all that apply)"
+          optionsArray={getPopulation()}
+          next="languageProvided"
+          onClickHandler={onClickToNextQuestion}/>);
+        break;
+      case "languageProvided":
         questionComponent = (<Question
-          id={2}
-          headerText="How would you like services to be offered?"
-          optionsArray={[
-            "In Person",
-            "Online/Virtually",
-            "Both"
-          ]}
-          next={3}
+          id={currentQuestion}
+          headerText="What language would you prefer services to be offered in?"
+          optionsArray={getLanguages()}
+          next="location"
           onClickHandler={onClickToNextQuestion}/>);
         break;
-        case 3:
-          questionComponent = (<Question
-            id={2}
-            headerText="Where are you located?"
-            optionsArray={getCities()}
-            next={0}
-            onClickHandler={onClickToResults}/>);
-          break;
+      case "location":
+        questionComponent = (<Question
+          id={currentQuestion}
+          headerText="Where are you located?"
+          optionsArray={getCities()}
+          next="city"
+          onClickHandler={onClickToResults}/>);
+        break;
     }
     return questionComponent;
   }

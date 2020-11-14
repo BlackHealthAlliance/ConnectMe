@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 import Header from "./header";
 
@@ -45,53 +45,59 @@ export function QuestionDropdown({id, headerText, optionsArray, onClickHandler, 
   )
 }
 
-export function QuestionCheckbox({id, headerText, optionsArray, onClickHandler, next}) {
+export function QuestionMulitple({id, headerText, optionsArray, onClickHandler, next}) {
 
-  const [isChecked, setIsChecked] = useState(Array.apply(Array(optionsArray.length)));
+  const [ isSelected, setIsSelected ] = useState(Array.apply(Array(optionsArray.length)));
+  const [ triggerRefresh, setTriggerRefresh ] = useState(false);
 
-  const handleInputChange = (id) => {
-    console.log(id);
-    const newCheckedValues = isChecked;
-    newCheckedValues[id] = !newCheckedValues[id];
-    setIsChecked(newCheckedValues);
+  useEffect(() => {
+  }, [triggerRefresh])
+
+
+  const handleInputChange = (index) => {
+    const newValues = isSelected;
+    newValues[index] = !newValues[index];
+    setIsSelected(newValues);
+    setTriggerRefresh(!triggerRefresh);
   }
 
   const createOptions = () => {
     return optionsArray.map(
       (option, key) => (
-        <div key={key} className="checkbox">
-          <input
-            id={option}
-            key={key}
-            name={option}
-            value={option}
-            type="checkbox"
-            checked={isChecked[key]}
-            onChange={() => handleInputChange(key)} />
-          <label htnlfor={option}>{option}</label>
-        </div>
+        <button
+          key={key}
+          className={` ${isSelected[key] ? "selectedButton" : "choiceButton"}`}
+          onClick={() => handleInputChange(key)} >{option}</button>
       )
     )
   };
 
-  const options = createOptions();
+  let options = createOptions();
 
   const getValues = () => {
     const searchValues = [];
     optionsArray.forEach((option, key) => {
-      if (isChecked[key]) {
+      if (isSelected[key]) {
         searchValues.push(option)
       }
     });
     return searchValues;
   }
 
+  const handleNext = () => {
+    const values = getValues();
+    onClickHandler(id, values, next);
+  }
+
   return (
     <div className="question">
       <Header headerText={headerText} />
       { options }
-      <button className="selectButton" onClick={() => onClickHandler(id, getValues(), next)}>Select</button>
       <br />
+      <button
+          className="nextButton"
+          onClick={() => handleNext()} >Next</button>
+          <br />
       <button className="skipButton" onClick={() => onClickHandler(id, null, next)}>Skip</button>
     </div>
   )
