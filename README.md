@@ -1,3 +1,21 @@
+# Connect Me
+
+## Local setup
+From https://www.gatsbyjs.com/docs/preparing-your-environment/
+- Ensure your computer has NodeJs[https://www.gatsbyjs.com/tutorial/part-zero/#install-nodejs-for-your-appropriate-operating-system], 
+- Ensure you install the GatsbyCLI
+To run via terminal:
+`npm install`
+`gatsby develop`
+
+## Testing
+To run via terminal: `npm run test` or 
+To run via VSCode, you can use the Jest Plugin[https://marketplace.visualstudio.com/items?itemName=firsttris.vscode-jest-runner]]
+
+
+More resources for windows:
+https://www.w3schools.com/nodejs/nodejs_get_started.asp
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.com">
