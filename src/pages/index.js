@@ -10,6 +10,8 @@ export default function Home() {
       <Link to="/about/">Contact</Link>
       <br />
       <Link to="/search">Search</Link>
+      <br />
+      <Link to="/results">Results</Link>
     </div>
   );
 }
