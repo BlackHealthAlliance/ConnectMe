@@ -1,3 +1,5 @@
+import { getOrganizations } from "./data";
+
 /**
  * 
  * @param {} searchCriteria 
@@ -12,4 +14,5 @@
  */
 export function searchOrganizations(searchCriteria) {
 
+   return getOrganizations(); 
 }

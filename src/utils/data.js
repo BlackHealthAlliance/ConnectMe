@@ -89,6 +89,9 @@ export function getOrganization(name) {
     return organizations.get(name);
 }
 
+export function getOrganizations() {
+    return organizations;
+}
 
 // main data
 var organizations = new Map();
@@ -111,7 +114,7 @@ organizations.set("Sherbourne Health centre",
         cost: 0,
         languages: ["English", "Bengali", "Farsi", "Hungarian", "Hindi", "Spanish", "Urdu"],
         address: {
-            city: cities.get("Toronto"),
+            city: cities.get("Montreal"),
             streetAddress: "100 Bay street",
             postalCode: "D1E2F3",
             province: "ON"
