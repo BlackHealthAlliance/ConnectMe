@@ -1,11 +1,15 @@
 import React, { useState } from "react"
+import { navigate } from '@reach/router';
+import { connect } from "react-redux"
+
+import { saveSearchValues } from '../state/app';
 
 import Question, { QuestionDropdown, QuestionCheckbox } from "../components/question";
 
 import { searchOrganizations } from "../utils/functions";
 
-function Search() {
-
+function Search({ dispatch }) {
+  
   const [questionAnswers, setQuestionAnswers] = useState(new Array(3));
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
@@ -25,7 +29,8 @@ function Search() {
     searchOrganizations({
       servicesOffered: questionAnswers[0]
     })
-    console.log(questionAnswers);
+    dispatch(saveSearchValues(Object.assign({}, questionAnswers)));
+    navigate('/results');
   }
 
   const getCurrentQuestion = () => {
@@ -82,4 +87,4 @@ function Search() {
   )
 }
 
-export default Search;
+export default connect(state => ({searchValues: state.app.searchValues }), null)(Search);
