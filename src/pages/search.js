@@ -1,55 +1,80 @@
-import React, { button } from "react"
+import React, { useState } from "react"
 
-import Header from "../components/header";
+import Question from "../components/question";
 
 import { searchFunction } from "../utils/functions";
 
-function About() {
+function Search() {
 
-  const questions = [
-    "Where are you located?",
-    "Which type of resource would you prefer?"
-  ];
+  const [questionAnswers, setQuestionAnswers] = useState(new Array(3));
+  const [currentQuestion, setCurrentQuestion] = useState(0);
 
-  const onClickHandler = (value) => {
-    searchFunction(value);
+  const updateAnswers = (id, value) => {
+    const updatedAnswers = questionAnswers;
+    updatedAnswers[id] = value;
+    setQuestionAnswers(updatedAnswers);
+  }
+
+  const onClickToNextQuestion = (id, value, nextId) => {
+    updateAnswers(id, value);
+    setCurrentQuestion(nextId);
   };
+
+  const onClickToResults = (id, value) => {
+    updateAnswers(id, value);
+    console.log(questionAnswers);
+  }
+
+  const getCurrentQuestion = () => {
+    let questionComponent;
+    switch(currentQuestion) {
+      case 0:
+      default:
+        questionComponent = (<Question
+          id={0}
+          headerText="What type of service are you looking for?"
+          optionsArray={[
+            "Crisis Support",
+            "Individual Counselling",
+            "Peer Counselling"
+          ]}
+          next={1}
+          onClickHandler={onClickToNextQuestion}/>);
+        break;
+      case 1:
+        questionComponent = (<Question
+          id={1}
+          headerText="Which type of resource would you prefer?"
+          optionsArray={[
+            "Free",
+            "Paid",
+            "Covered by OHIP",
+            "Accepts Insurance"
+          ]}
+          next={2}
+          onClickHandler={onClickToNextQuestion}/>);
+        break;
+      case 2:
+        questionComponent = (<Question
+          id={2}
+          headerText="How would you like services to be offered??"
+          optionsArray={[
+            "In Person",
+            "Online/Virtually",
+            "Both"
+          ]}
+          next={0}
+          onClickHandler={onClickToResults}/>);
+        break;
+    }
+    return questionComponent;
+  }
 
   return (
     <div>
-      <div className="question">
-        <Header headerText="Where are you located?" />
-        <label for="postal-code">Postal Code</label> <br/>
-        <input id="postal-code"/>
-        <br />
-        <label for="city">City</label> <br/>
-        <input id="city"/>
-        <br />
-        <label for="province">Province</label> <br/>
-        <input id="province"/>
-        <br />
-        <button className="choiceButton">Next</button>
-      </div>
-      <div className="question">
-        <Header headerText="What type of service are you looking for?" />
-        <button className="choiceButton" onClick={() => onClickHandler("Crisis Support")}>Crisis Support</button>
-        <button className="choiceButton">Individual Counselling</button>
-        <button className="choiceButton">Peer Counselling</button>
-        <br />
-        <a href="/">Skip</a>
-      </div>
-      <div className="question">
-        <Header headerText="Which type of resource would you prefer?" />
-        <button className="choiceButton" onClick={() => onClickHandler("Free")}>Free</button>
-        <button className="choiceButton">Paid</button>
-        <button className="choiceButton">Covered by OHIP</button>
-        <button className="choiceButton">Accepts Insurance</button>
-        <br />
-        <a href="/">Skip</a>
-      </div>
-
+      { getCurrentQuestion() }
     </div>
   )
 }
 
-export default About;
+export default Search;
