@@ -54,35 +54,6 @@ let lengthOfService = ["Crisis", "Short-term", "Long-term"];
 
 
 // main data
-var organizations = new Map();
-organizations.set("The 519", 
-    {
-        crisis: false,
-        cost: "N/A",
-        languages: ["English"],
-        address: {
-            city: "Toronto",
-            streetAddress: "161 Bay street",
-            postalCode: "A1B2C3",
-            province: "ON"
-        }
-    }
-);
-organizations.set("Sherbourne Health centre",
-    {
-        crisis: false,
-        cost: 0,
-        languages: ["English", "Spanish", "Urdu"],
-        address: {
-            city: "Toronto",
-            streetAddress: "100 Bay street",
-            postalCode: "D1E2F3",
-            province: "ON"
-        }
-    }
-);
-
-// main data
 let organizations = [
     {
         name: "The 519",
