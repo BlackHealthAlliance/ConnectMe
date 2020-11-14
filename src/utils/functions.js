@@ -1,5 +1,15 @@
-export function searchFunction (value1, value2) {
-  alert(`Searching for: ${value1} and ${value2}`);
+/**
+ * 
+ * @param {} searchCriteria 
+ * sample searchCriteria goes below
+ * {
+ *    "city": "toronto",
+ *    "cost": "low",
+ *    "serviceOffered": ["black-led", "free"],
+ *    "populationServed": ["insurance", "no-insurance"],
+ *    "languageProvided": "English"
+ * }
+ */
+export function searchOrganizations(searchCriteria) {
 
-  return value2;
 }
