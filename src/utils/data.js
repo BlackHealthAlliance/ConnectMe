@@ -32,7 +32,7 @@ export function getInsurance() {
 }
 
 let services = [
-    "Counselling", "Peer Support", "Crisis services", "Religion-based programs",
+    "Counselling", "Individual Counselling", "Peer Support", "Crisis Support", "Religion-based programs",
     "Psychotherapy programs/services", "In-patient programs", "Out-patient services", 
     "12-step programs", "Hospital-based programs", "Supportive housing ", "Physical activity",
     "Residential", "Substance Abuse", "Recreation/Leisure/Art & Crafts", "Education and Stress Management",
@@ -46,9 +46,9 @@ export function getServices() {
 
 
 let population = [
-    "Priority populations", "Black populations", "2SLGBTQ+", "Newcomers/Immigrants",
+    "Priority populations", "Black-led", "2SLGBTQ+", "Newcomers/Immigrants",
     "Deaf services", "People with disabilities", "People experiencing homelessness or being underhoused", 
-    "Indigenous populations"
+    "Indigenous populations", "Faith-based"
 ];
 
 export function getPopulation() {
@@ -63,10 +63,10 @@ export function getLengthOfService() {
 }
 
 // main data
-let organizations = [
+var organizations = [
     {
         name: "Across Boundaries",
-        cost: "Free",
+        cost: ["Free"],
         languages: ["English"],
         services: ["Peer Support"],
         population: ["2SLGBTQ+"],
@@ -84,7 +84,7 @@ let organizations = [
     },
     {
         name: "Access Alliance",
-        cost: "Paid",
+        cost: ["Paid"],
         languages: ["French"],
         services: ["Counselling"],
         population: ["Newcomers/Immigrants"],
@@ -99,9 +99,77 @@ let organizations = [
             email: "languages@accessalliance.ca",
             web: "https://accessalliance.ca/"
         }
+    },
+    {
+        name: "Regent Park Community Health Centre",
+        cost: ["Paid", "Covered by OHIP"],
+        languages: ["English", "French"],
+        services: ["Crisis Support", "Individual Counselling", "Peer Support"],
+        population: ["Newcomers/Immigrants"],
+        address: {
+            city: "Toronto",
+            streetAddress: "465 Dundas Street East",
+            postalCode: "N/A",
+            province: "ON"
+        },
+        contact: {
+            phone: "(416) 364-2261",
+            email: "info@regentparkchc.org",
+            web: "http://www.regentparkchc.org/"
+        }
+    },
+    {
+        name: "Frontlines",
+        cost: ["Accepts Insurance"],
+        languages: ["English", "French", "Spanish"],
+        services: ["Counselling", "Peer Support"],
+        population: ["Black-led"],
+        address: {
+            city: "York",
+            streetAddress: "1844 Weston Road",
+            postalCode: "N/A",
+            province: "ON"
+        },
+        contact: {
+            phone: "(416) 244-7017",
+            email: "info@frontlines.to",
+            web: "http://frontlines.to"
+        }
+    },
+    {
+        name: "Afri-Can Food Basket",
+        cost: ["Free", "Paid"],
+        languages: ["English"],
+        services: ["Individual Counselling"],
+        population: ["Black-led"],
+        address: {
+            city: "North York",
+            streetAddress: "4929 Jane Street",
+            postalCode: "N/A",
+            province: "ON"
+        },
+        contact: {
+            phone: "647-896-0641",
+            email: "info@africanfoodbasket.ca",
+            web: "https://africanfoodbasket.ca"
+        }
+    },
+    {
+        name: "Harriet Tubman Community Organization",
+        cost: ["Covered by OHIP", "Accepts Insurance"],        
+        languages: ["French"],
+        services: ["Peer Support"],
+        population: ["Black-led"],
+        address: {
+            city: "Toronto",
+            streetAddress: "1761 Sheppard Avenue",
+            postalCode: "N/A",
+            province: "ON"
+        },
+        contact: {
+            phone: "(416) 496-2042",
+            email: "info@tubmancommunity.org",
+            web: "https://www.tubmancommunity.org"
+        }
     }
 ];
-
-export function getOrganizations() {
-    return organizations;
-}

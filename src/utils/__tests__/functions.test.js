@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+import {searchFunction, searchOrganizations} from '../functions';
+import {getCIties, getLanguages} from '../data';
+=======
 import {searchOrganizations} from '../functions';
 import {getLanguages, getCities} from '../data';
+>>>>>>> search
 
 describe('functions - searchFunction', () => {
   beforeEach(() => {
