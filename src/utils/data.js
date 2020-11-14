@@ -83,7 +83,7 @@ organizations.set("Sherbourne Health centre",
 );
 
 // main data
-var organizations = [
+let organizations = [
     {
         name: "The 519",
         crisis: false,
@@ -109,11 +109,6 @@ var organizations = [
         }
     }
 ];
-
-export function getOrganization(name) {
-    return organizations.get(name);
-}
-
 
 export function getOrganizations() {
     return organizations;
