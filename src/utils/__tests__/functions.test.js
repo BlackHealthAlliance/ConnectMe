@@ -56,4 +56,14 @@ describe('functions - searchFunction', () => {
     expect(organizations[0].name).toEqual('Across Boundaries');
   })
 
+  test('It should return a list of organization when matched by population', () => {
+    const searchCriteria = {
+      populationServed: ["2SLGBTQ+", "Newcomers/Immigrants"]
+    };
+
+    const organizations = searchOrganizations(searchCriteria);
+    expect(organizations.length).toEqual(3);
+    expect(organizations[2].name).toEqual('Regent Park Community Health Centre');
+  })
+
 });
