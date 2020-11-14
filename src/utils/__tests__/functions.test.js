@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import {searchFunction, searchOrganizations} from '../functions';
-import {getCIties, getLanguages} from '../data';
-=======
 import {searchOrganizations} from '../functions';
 import {getLanguages, getCities} from '../data';
->>>>>>> search
 
 describe('functions - searchFunction', () => {
   beforeEach(() => {
@@ -29,7 +24,7 @@ describe('functions - searchFunction', () => {
     };
 
     const organizations = searchOrganizations(searchCriteria);
-    expect(organizations.length).toEqual(2);
+    expect(organizations.length).toEqual(4);
   })  
 
   test('It should return an empty list if not found', () => {
@@ -47,7 +42,7 @@ describe('functions - searchFunction', () => {
     };
 
     const organizations = searchOrganizations(searchCriteria);
-    expect(organizations.length).toEqual(1);
+    expect(organizations.length).toEqual(3);
     expect(organizations[0].name).toEqual('Access Alliance');
   })
 
@@ -57,7 +52,7 @@ describe('functions - searchFunction', () => {
     };
 
     const organizations = searchOrganizations(searchCriteria);
-    expect(organizations.length).toEqual(1);
+    expect(organizations.length).toEqual(4);
     expect(organizations[0].name).toEqual('Across Boundaries');
   })
 

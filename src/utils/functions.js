@@ -15,7 +15,7 @@ import { getOrganizations } from "./data";
 export function searchOrganizations(searchCriteria) {
     return getOrganizations().filter( org => 
         isMatch(searchCriteria.city, org.address.city) && 
-        isMatch(searchCriteria.cost, org.cost) &&
+        contains(org.cost, searchCriteria.cost) &&
         contains(org.services, searchCriteria.serviceOffered)
     );
 }

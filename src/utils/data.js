@@ -173,3 +173,7 @@ var organizations = [
         }
     }
 ];
+
+export function getOrganizations() {
+    return organizations;
+}
