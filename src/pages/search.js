@@ -7,7 +7,14 @@ import { saveSearchValues } from '../state/app';
 import Question, { QuestionMulitple } from "../components/question";
 
 import { searchOrganizations } from "../utils/functions";
-import { getCities, getLanguages, getInsurance, getServices, getPopulation } from "../utils/data"
+import {
+  getCities,
+  getLanguages,
+  getInsurance,
+  getServices,
+  getPopulation,
+  getCost,
+  getLengthOfService } from "../utils/data"
 
 function Search({ dispatch }) {
   
@@ -37,12 +44,36 @@ function Search({ dispatch }) {
   const getCurrentQuestion = () => {
     let questionComponent;
     switch(currentQuestion) {
-      case "serviceOffered":
+      case "city":
       default:
-        questionComponent = (<Question
+        questionComponent = (<QuestionMulitple
+          id={currentQuestion}
+          headerText="What area(s) are you looking for services in? (select all that apply)"
+          optionsArray={getCities()}
+          next="services"
+          onClickHandler={onClickToNextQuestion}/>);
+        break;
+      case "services":
+        questionComponent = (<QuestionMulitple
           id={currentQuestion}
           headerText="What type of service are you looking for?"
           optionsArray={getServices()}
+          next="cost"
+          onClickHandler={onClickToNextQuestion}/>);
+        break;
+      case "cost":
+        questionComponent = (<Question
+          id={currentQuestion}
+          headerText="What are your budgetary needs?"
+          optionsArray={getCost()}
+          next="length"
+          onClickHandler={onClickToNextQuestion}/>);
+        break;
+      case "length":
+        questionComponent = (<Question
+          id={currentQuestion}
+          headerText="How long do you want the services to be?"
+          optionsArray={getLengthOfService()}
           next="resource"
           onClickHandler={onClickToNextQuestion}/>);
         break;
@@ -51,31 +82,22 @@ function Search({ dispatch }) {
           id={currentQuestion}
           headerText="Which type of resource would you prefer?"
           optionsArray={getInsurance()}
-          next="populationServed"
+          next="languages"
           onClickHandler={onClickToNextQuestion}/>);
         break;
-      case "populationServed":
-        questionComponent = (<QuestionMulitple
-          id={currentQuestion}
-          headerText="Are you looking for resources that serve any of the following populations? (select all that apply)"
-          optionsArray={getPopulation()}
-          next="languageProvided"
-          onClickHandler={onClickToNextQuestion}/>);
-        break;
-      case "languageProvided":
+      case "languages":
         questionComponent = (<Question
           id={currentQuestion}
           headerText="What language would you prefer services to be offered in?"
           optionsArray={getLanguages()}
-          next="location"
+          next="population"
           onClickHandler={onClickToNextQuestion}/>);
         break;
-      case "location":
-        questionComponent = (<Question
+      case "population":
+        questionComponent = (<QuestionMulitple
           id={currentQuestion}
-          headerText="Where are you located?"
-          optionsArray={getCities()}
-          next="city"
+          headerText="Are you looking for resources that serve any of the following populations? (select all that apply)"
+          optionsArray={getPopulation()}
           onClickHandler={onClickToResults}/>);
         break;
     }

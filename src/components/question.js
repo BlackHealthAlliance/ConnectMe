@@ -47,12 +47,20 @@ export function QuestionDropdown({id, headerText, optionsArray, onClickHandler, 
 
 export function QuestionMulitple({id, headerText, optionsArray, onClickHandler, next}) {
 
-  const [ isSelected, setIsSelected ] = useState(Array.apply(Array(optionsArray.length)));
+  const [ isSelected, setIsSelected ] = useState(new Array(optionsArray.length));
   const [ triggerRefresh, setTriggerRefresh ] = useState(false);
+  const [ initialClear, setInitialClear ] = useState(true);
 
   useEffect(() => {
-  }, [triggerRefresh])
+    if (initialClear) {
+      clearData();
+      setInitialClear(false);
+    }
+  }, [triggerRefresh, initialClear]);
 
+  const clearData = () => {
+    setIsSelected(new Array(optionsArray.length))
+  };
 
   const handleInputChange = (index) => {
     const newValues = isSelected;
@@ -86,6 +94,7 @@ export function QuestionMulitple({id, headerText, optionsArray, onClickHandler, 
 
   const handleNext = () => {
     const values = getValues();
+    setInitialClear(true);
     onClickHandler(id, values, next);
   }
 
@@ -98,7 +107,7 @@ export function QuestionMulitple({id, headerText, optionsArray, onClickHandler, 
           className="nextButton"
           onClick={() => handleNext()} >Next</button>
           <br />
-      <button className="skipButton" onClick={() => onClickHandler(id, null, next)}>Skip</button>
+      <button className="skipButton" onClick={() => handleNext()}>Skip</button>
     </div>
   )
 }
