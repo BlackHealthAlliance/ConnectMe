@@ -1,3 +1,5 @@
+import { getOrganizations } from "./data";
+
 /**
  * 
  * @param {} searchCriteria 
@@ -11,5 +13,7 @@
  * }
  */
 export function searchOrganizations(searchCriteria) {
-
+    return getOrganizations().map( org => {
+        {city: org.address.city}
+    });
 }

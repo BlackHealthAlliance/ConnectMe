@@ -52,9 +52,6 @@ export function getPopulation() {
 
 let lengthOfService = ["Crisis", "Short-term", "Long-term"];
 
-export function getPopulation() {
-    return lengthOfService;
-}
 
 // main data
 var organizations = new Map();
@@ -85,40 +82,34 @@ organizations.set("Sherbourne Health centre",
     }
 );
 
-export function getOrganization(name) {
-    return organizations.get(name);
-}
-
-
 // main data
-var organizations = new Map();
-organizations.set("The 519", 
+let organizations = [
     {
+        name: "The 519",
         crisis: false,
         cost: "N/A",
         languages: ["English"],
         address: {
-            city: cities.get("Toronto"),
+            city: "Toronto",
             streetAddress: "161 Bay street",
             postalCode: "A1B2C3",
             province: "ON"
         }
-    }
-);
-organizations.set("Sherbourne Health centre",
+    },
     {
+        name: "Sherbourne Health centre",
         crisis: false,
         cost: 0,
         languages: ["English", "Bengali", "Farsi", "Hungarian", "Hindi", "Spanish", "Urdu"],
         address: {
-            city: cities.get("Toronto"),
+            city: "Montreal",
             streetAddress: "100 Bay street",
             postalCode: "D1E2F3",
             province: "ON"
         }
     }
-);
+];
 
-export function getOrganization(name) {
-    return organizations.get(name);
+export function getOrganizations() {
+    return organizations;
 }
