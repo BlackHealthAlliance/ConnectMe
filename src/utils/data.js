@@ -63,7 +63,11 @@ export function getLengthOfService() {
 }
 
 // main data
+<<<<<<< HEAD
 var organizations = [
+=======
+let organizations = [
+>>>>>>> search
     {
         name: "Across Boundaries",
         cost: "Free",

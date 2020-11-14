@@ -13,7 +13,7 @@ import { getOrganizations } from "./data";
  * }
  */
 export function searchOrganizations(searchCriteria) {
-    return getOrganizations().map( org => {
-        {city: org.address.city}
-    });
+    return getOrganizations().filter( org => 
+        org.address.city === searchCriteria.city
+    );
 }

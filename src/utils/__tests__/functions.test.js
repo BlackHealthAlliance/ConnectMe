@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import {searchFunction, searchOrganizations} from '../functions';
 import {getCIties, getLanguages} from '../data';
+=======
+import {searchOrganizations} from '../functions';
+import {getLanguages, getCities} from '../data';
+>>>>>>> search
 
 describe('functions - searchFunction', () => {
   beforeEach(() => {
@@ -18,19 +23,21 @@ describe('functions - searchFunction', () => {
     expect(response[0]).toEqual("English");
   });
   
-  /*
-  test('It should return a value', () => {
-    const response = searchFunction("testValue1", "test2");
-    expect(response).toEqual("test2");
-  });
-  */
-
-  test('It should return a list of organization', () => {
+  test('It should return a list of organization when matched by city', () => {
     const searchCriteria = {
       city: 'Toronto'
     };
 
     const organizations = searchOrganizations(searchCriteria);
-    expect(organizations.length).toEqual(2);
+    expect(organizations.length).toEqual(1);
   })  
+
+  test('It should return an empty list if not found', () => {
+    const searchCriteria = {
+      city: 'Nowhere'
+    };
+
+    const organizations = searchOrganizations(searchCriteria);
+    expect(organizations.length).toEqual(0);
+  })
 });
