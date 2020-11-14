@@ -1,4 +1,7 @@
-let cities = ["Toronto (GTA)", "Ottawa (NCR)", "Hamilton", "Kitchener-Waterloo-Cambridge", "London", "Windsor"];
+let cities = [
+    "Toronto", "Ottawa", "Hamilton", "Scarborough", "North York", "York", "Brampton",
+    "Oshawa", "Etobicoke", "Whitby", "Mississauga", 
+];
 
 export function getCities() {
     return cities;
@@ -14,7 +17,7 @@ export function getLanguages() {
     return languages;
 }
 
-let cost = ["Free", "Paid", "Both"];
+let cost = ["Free", "Paid", "Covered by OHIP", "Accepts Insurance"];
 
 export function getCost() {
     return cost;
@@ -29,9 +32,12 @@ export function getInsurance() {
 }
 
 let services = [
-    "Individual counselling", "Peer counselling", "Crisis services", "Religion-based programs",
-    "Psychotherapy programs/services", "In-patient programs", "Residential programs", "Out-patient services",
-    "12-step programs", "Hospital-based programs", "Supportive housing ", "Physical activity", "Other services"
+    "Counselling", "Peer Support", "Crisis services", "Religion-based programs",
+    "Psychotherapy programs/services", "In-patient programs", "Out-patient services", 
+    "12-step programs", "Hospital-based programs", "Supportive housing ", "Physical activity",
+    "Residential", "Substance Abuse", "Recreation/Leisure/Art & Crafts", "Education and Stress Management",
+    "Youth Programs", "Homework Club", "Cooking Skills", "Camp", "Personal Development",
+    "Other services"
 ];
 
 export function getServices() {
@@ -40,7 +46,7 @@ export function getServices() {
 
 
 let population = [
-    "Priority populations", "Black populations", "2SLGBTQ+ Friendly", "Newcomer and Refugee services",
+    "Priority populations", "Black populations", "2SLGBTQ+", "Newcomers/Immigrants",
     "Deaf services", "People with disabilities", "People experiencing homelessness or being underhoused", 
     "Indigenous populations"
 ];
@@ -52,64 +58,46 @@ export function getPopulation() {
 
 let lengthOfService = ["Crisis", "Short-term", "Long-term"];
 
+export function getLengthOfService() {
+    return lengthOfService;
+}
 
 // main data
-var organizations = new Map();
-organizations.set("The 519", 
+var organizations = [
     {
-        crisis: false,
-        cost: "N/A",
+        name: "Across Boundaries",
+        cost: "Free",
         languages: ["English"],
+        services: ["Peer Support"],
+        population: ["2SLGBTQ+"],
         address: {
             city: "Toronto",
-            streetAddress: "161 Bay street",
-            postalCode: "A1B2C3",
+            streetAddress: "51 Clarkson Avenue",
+            postalCode: "M6E 2T5",
             province: "ON"
-        }
-    }
-);
-organizations.set("Sherbourne Health centre",
-    {
-        crisis: false,
-        cost: 0,
-        languages: ["English", "Spanish", "Urdu"],
-        address: {
-            city: "Toronto",
-            streetAddress: "100 Bay street",
-            postalCode: "D1E2F3",
-            province: "ON"
-        }
-    }
-);
-
-// main data
-let organizations = [
-    {
-        name: "The 519",
-        crisis: false,
-        cost: "N/A",
-        languages: ["English"],
-        address: {
-            city: "Toronto",
-            streetAddress: "161 Bay street",
-            postalCode: "A1B2C3",
-            province: "ON"
+        },
+        contact: {
+            phone: "(416) 787- 3007",
+            email: "info@acrossboundaries.ca",
+            web: "https://www.acrossboundaries.ca/"
         }
     },
     {
-        name: "Sherbourne Health centre",
-        crisis: false,
-        cost: 0,
-        languages: ["English", "Bengali", "Farsi", "Hungarian", "Hindi", "Spanish", "Urdu"],
+        name: "Access Alliance",
+        cost: "Paid",
+        languages: ["French"],
+        services: ["Counselling"],
+        population: ["Newcomers/Immigrants"],
         address: {
-            city: "Montreal",
-            streetAddress: "100 Bay street",
-            postalCode: "D1E2F3",
+            city: "Toronto",
+            streetAddress: "51 Clarkson Avenue",
+            postalCode: "M6E 2T5",
             province: "ON"
+        },
+        contact: {
+            phone: "416-324-8677",
+            email: "languages@accessalliance.ca",
+            web: "https://accessalliance.ca/"
         }
     }
 ];
-
-export function getOrganizations() {
-    return organizations;
-}
