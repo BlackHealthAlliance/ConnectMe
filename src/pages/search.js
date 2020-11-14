@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 
-import Question from "../components/question";
+import Question, { QuestionDropdown, QuestionCheckbox } from "../components/question";
 
-import { searchFunction } from "../utils/functions";
+import { searchOrganizations } from "../utils/functions";
 
 function Search() {
 
@@ -22,6 +22,9 @@ function Search() {
 
   const onClickToResults = (id, value) => {
     updateAnswers(id, value);
+    searchOrganizations({
+      servicesOffered: questionAnswers[0]
+    })
     console.log(questionAnswers);
   }
 

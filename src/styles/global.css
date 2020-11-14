@@ -32,6 +32,39 @@ h1 {
   background-color: #e68c87;
 }
 
+.selectButton {
+  background-color: #d3655f;
+  color: white;
+  padding: 0.9em;
+  border-radius: 5px;
+  border: none;
+  margin: 10px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.checkbox {
+  font-size: 1.1em;
+  align-items: left;
+  padding: 1em;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.choiceDropdown {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.choiceDropdown > option {
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px;
+}
+
 .skipButton {
   background-color: #dd888400;
   color: black;
