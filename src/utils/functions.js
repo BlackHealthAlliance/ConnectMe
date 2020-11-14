@@ -17,7 +17,8 @@ export function searchOrganizations(searchCriteria) {
         isMatch(searchCriteria.city, org.address.city) && 
         contains(org.cost, searchCriteria.cost) &&
         contains(org.services, searchCriteria.serviceOffered) &&
-        anyMatch(org.population, searchCriteria.populationServed)
+        anyMatch(org.population, searchCriteria.populationServed) &&
+        contains(org.languages, searchCriteria.languageProvided)
     );
 }
 
