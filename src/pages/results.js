@@ -1,12 +1,16 @@
 import React from "react"
 
 import { connect } from "react-redux"
+import Organization from "../components/organization"
 
 function Results({searchValues}) {
 
   console.log(searchValues)
   return (
-    <div >
+    <div>
+        <table className="table table-striped table-bordered">
+            <tbody><Organization /></tbody>
+        </table>
     </div>
   )
 }
