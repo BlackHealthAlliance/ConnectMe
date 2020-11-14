@@ -19,6 +19,6 @@ describe('functions - searchFunction', () => {
     };
 
     const organizations = searchOrganizations(searchCriteria);
-    expect(organizations.length).toEqual(1);
+    expect(organizations.length).toEqual(2);
   })  
 });

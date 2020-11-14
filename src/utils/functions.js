@@ -14,5 +14,12 @@ import { getOrganizations } from "./data";
  */
 export function searchOrganizations(searchCriteria) {
 
-   return getOrganizations(); 
+    var result = [];
+    const organizations = getOrganizations(); 
+
+    console.log('ready to output');
+    
+    return getOrganizations().map( org => {
+        {city: org.address.city}
+    });
 }
