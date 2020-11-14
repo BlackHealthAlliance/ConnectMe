@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { navigate } from '@reach/router';
+import { navigate } from 'gatsby';
 import { connect } from "react-redux"
 
 import { saveSearchValues } from '../state/app';
@@ -7,6 +7,7 @@ import { saveSearchValues } from '../state/app';
 import Question, { QuestionDropdown, QuestionCheckbox } from "../components/question";
 
 import { searchOrganizations } from "../utils/functions";
+import { getCities } from "../utils/data"
 
 function Search({ dispatch }) {
   
@@ -24,12 +25,12 @@ function Search({ dispatch }) {
     setCurrentQuestion(nextId);
   };
 
-  const onClickToResults = (id, value) => {
+  const onClickToResults = async (id, value) => {
     updateAnswers(id, value);
     searchOrganizations({
       servicesOffered: questionAnswers[0]
     })
-    dispatch(saveSearchValues(Object.assign({}, questionAnswers)));
+    // dispatch(saveSearchValues(Object.assign({}, questionAnswers)));
     navigate('/results/');
   }
 
@@ -71,9 +72,17 @@ function Search({ dispatch }) {
             "Online/Virtually",
             "Both"
           ]}
-          next={0}
-          onClickHandler={onClickToResults}/>);
+          next={3}
+          onClickHandler={onClickToNextQuestion}/>);
         break;
+        case 3:
+          questionComponent = (<Question
+            id={2}
+            headerText="Where are you located?"
+            optionsArray={getCities()}
+            next={0}
+            onClickHandler={onClickToResults}/>);
+          break;
     }
     return questionComponent;
   }
