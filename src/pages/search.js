@@ -30,7 +30,7 @@ function Search({ dispatch }) {
       servicesOffered: questionAnswers[0]
     })
     dispatch(saveSearchValues(Object.assign({}, questionAnswers)));
-    navigate('/results');
+    navigate('/results/');
   }
 
   const getCurrentQuestion = () => {
