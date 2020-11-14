@@ -56,4 +56,24 @@ describe('functions - searchFunction', () => {
     expect(organizations[0].name).toEqual('Across Boundaries');
   })
 
+  test('It should return a list of organization when matched by population', () => {
+    const searchCriteria = {
+      populationServed: ["2SLGBTQ+", "Newcomers/Immigrants"]
+    };
+
+    const organizations = searchOrganizations(searchCriteria);
+    expect(organizations.length).toEqual(3);
+    expect(organizations[2].name).toEqual('Regent Park Community Health Centre');
+  })
+
+  test('It should return a list of organization when matched by language', () => {
+    const searchCriteria = {
+      languageProvided: "French"
+    };
+
+    const organizations = searchOrganizations(searchCriteria);
+    expect(organizations.length).toEqual(4);
+    expect(organizations[3].name).toEqual('Harriet Tubman Community Organization');
+  })
+
 });
