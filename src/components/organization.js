@@ -1,3 +1,5 @@
+import React from 'react';
+
 const { Component } = require("react");
 
 class Organization extends Component {
@@ -11,6 +13,10 @@ class Organization extends Component {
 
     render = () => 
         <div>
-            Please render me on UI beautifully!
+            <label for="name">{this.state.name}</label>
+            <br />
+            <label for="city">{this.state.city}</label>
         </div>
 }
+
+export default Organization;
