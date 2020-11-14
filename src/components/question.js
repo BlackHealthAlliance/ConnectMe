@@ -17,7 +17,7 @@ export default function QuestionSelection({id, headerText, optionsArray, onClick
       <Header headerText={headerText} />
         {choices}
         <br />
-        <button onClick={() => onClickHandler(id, null, next)}>Skip</button>
+        <button className="skipButton" onClick={() => onClickHandler(id, null, next)}>Skip</button>
     </div>
   )
 }

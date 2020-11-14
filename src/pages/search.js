@@ -57,7 +57,7 @@ function Search() {
       case 2:
         questionComponent = (<Question
           id={2}
-          headerText="How would you like services to be offered??"
+          headerText="How would you like services to be offered?"
           optionsArray={[
             "In Person",
             "Online/Virtually",
@@ -71,8 +71,10 @@ function Search() {
   }
 
   return (
-    <div>
-      { getCurrentQuestion() }
+    <div className="questionWrapper">
+      <center>
+        { getCurrentQuestion() }
+      </center>
     </div>
   )
 }
