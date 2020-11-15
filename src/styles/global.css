@@ -38,6 +38,12 @@ h1 {
   padding-bottom: 2em;
 }
 
+.logo-results {
+  position: absolute;
+  right: 50px;
+  width: 250px;
+}
+
 .choiceButton {
   font-size: 1.1em;
   background-color: #D97B77;
@@ -127,11 +133,12 @@ h1 {
 .organizationResultTitle {
   font-style: normal;
   font-weight: 600;
-  font-size: 48px;
+  font-size: 32px;
   line-height: 60px;
   display: flex;
   align-items: center;
   text-align: center;
+  padding-top: 45px;
   color: #1F193E;
 }
 
@@ -147,7 +154,8 @@ h1 {
 }
 
 .organization {
-  background: #FAEDE7;
+  background: #F5DEB5;
+  border-radius: 5px;
   padding: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -195,12 +203,19 @@ h1 {
 .organizationWebsite {
   width: 147px;
   height: 38px;
-  background: #DD8884;
+  background: #D97B77;
   border-radius: 10px;
   float: right;
-  color: white;
+  color: black;
   border: none;
+  cursor: pointer;
+  font-weight: bold;
 }
+
+.organizationWebsite:hover {
+  background: #f28b88;
+}
+
 
 .organizationContainer {
   display: flex;

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-
 import { connect } from "react-redux"
+
+import PTCLogo from "../assets/PTC-Logo-4.png";
+
 import Organization from "../components/organization"
 import spotlightIcon from "../assets/spotlight-4.png";
 import { searchOrganizations } from "../utils/functions";
@@ -10,7 +12,6 @@ function Results({searchValues}) {
 
   const [searchResults, setSearchResults] = useState({});
   const [showEverything, setShowEverything] = useState(false);
-
   useEffect(() => {
     setShowEverything(false);
     setSearchResults(searchOrganizations(searchValues));
@@ -49,6 +50,7 @@ function Results({searchValues}) {
 
   return (
     <div className="organizationResult">
+        <a href="https://www.pathwaystocare.ca" target="__blank" ><img src={PTCLogo} alt="Pathways to Care" className="logo-results" /></a>
         <label className="organizationResultTitle">Here are the resources that best meet your specific needs:</label>
         <br />
         <table>
