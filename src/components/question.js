@@ -103,6 +103,7 @@ export function QuestionMulitple({id, headerText, optionsArray, onClickHandler, 
       <Header headerText={headerText} />
       { options }
       <br />
+      <br />
       <button
           className="nextButton"
           onClick={() => handleNext()} >Next</button>
