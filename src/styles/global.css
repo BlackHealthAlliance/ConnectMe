@@ -176,6 +176,11 @@ h1 {
   margin-right: 5px;
 }
 
+.organizationContactRow {
+  display: flex;
+  margin-bottom: 5px;
+}
+
 .spotlightImg {
   width: 24px;
   height: 22px;

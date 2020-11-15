@@ -19,14 +19,18 @@ class Organization extends Component {
             <br /><br />
             <label className="organizationInfo" htmlFor="services">{this.props.services.join(", ")}</label>
             <br /><br />
-            <GoLocation className="organizationContactIcon"/>
-            <label className="organizationInfo" htmlFor="location">{this.props.location}</label>
-            <br />
-            <HiOutlineMail className="organizationContactIcon"/>
-            <label className="organizationInfo" htmlFor="email">{this.props.email}</label>
-            <br />
-            <FiPhone className="organizationContactIcon"/>
-            <label className="organizationInfo" htmlFor="phone">{this.props.phone}</label>
+            <div className="organizationContactRow">
+                <GoLocation className="organizationContactIcon"/>
+                <label className="organizationInfo" htmlFor="location">{this.props.location}</label>
+            </div>
+            <div className="organizationContactRow">
+                <HiOutlineMail className="organizationContactIcon"/>
+                <label className="organizationInfo" htmlFor="email">{this.props.email}</label>
+            </div>
+            <div className="organizationContactRow">
+                <FiPhone className="organizationContactIcon"/>
+                <label className="organizationInfo" htmlFor="phone">{this.props.phone}</label>
+            </div>
             <a href={this.props.website} target="_blank">
                 <input className="organizationWebsite" type="button" value="take me to their site" />
             </a>
