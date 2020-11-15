@@ -1,4 +1,5 @@
 import React from "react"
+import Container from '@material-ui/core/Container';
 
 import { connect } from "react-redux"
 import Organization from "../components/organization"
@@ -34,6 +35,11 @@ function Results({searchValues}) {
             }
         </div>
      </div>
+    // <Container class="organizationContainer">
+    //   { 
+    //       createOrganizationCells()
+    //   }
+    //  </Container>
   )
 }
 

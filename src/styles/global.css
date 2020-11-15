@@ -181,3 +181,15 @@ h1 {
   border-radius: 10px;
   float: right;
 }
+
+.organizationContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.organizationContainer > * {
+  margin: 10px 10px;
+}
