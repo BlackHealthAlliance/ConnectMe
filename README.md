@@ -16,6 +16,12 @@ To run via VSCode, you can use the Jest Plugin[https://marketplace.visualstudio.
 More resources for windows:
 https://www.w3schools.com/nodejs/nodejs_get_started.asp
 
+## Run with Firebase Realtime Database
+- Get the code from the 'firebase' branch
+- Add credentials to the gatsby-config.js file
+- Upload data to the database in json format. See src\utils\mock-db-data.json for expected keys
+
+# GATSBY GENERATED
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.com">
