@@ -113,6 +113,75 @@ h1 {
   text-align: center;
 }
 
+.organizationResult {
+  padding: 20px;
+  margin: 20px;
+}
+
+.organizationResultTitle {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 60px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+
+.organizationResultDescription {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+.organization {
+  background: #FAEDE7;
+  padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.organizationName {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+  align-items: center;
+}
+
+.organizationInfo {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.spotlightImg {
+  width: 30px;
+  height: 26px;
+}
+
+.spotlightImgRight {
+  width: 30px;
+  height: 26px;
+  float: right;
+}
+
+.organizationWebsite {
+  width: 147px;
+  height: 38px;
+  background: #DD8884;
+  border-radius: 10px;
+  float: right;
+}
+
 .organizationContainer {
   display: flex;
   flex-flow: row wrap;
