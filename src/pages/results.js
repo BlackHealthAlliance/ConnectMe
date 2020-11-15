@@ -10,13 +10,15 @@ function Results({searchValues}) {
     return Object.keys(searchValues).map(
       (key) => {
         const nextOrg = searchValues[key]
+        const address = nextOrg.address
+        const contact = nextOrg.contact
         return <Organization key={key} name={nextOrg.name} 
                             isSpotlight={nextOrg.spotlight}
                             services={nextOrg.services}
-                            location={nextOrg.location}
-                            email={nextOrg.contact.email}
-                            phone={nextOrg.contact.phone}
-                            website={nextOrg.contact.web} />
+                            location={address.streetAddress}
+                            email={contact.email}
+                            phone={contact.phone}
+                            website={contact.web} />
       }
     )};
 
