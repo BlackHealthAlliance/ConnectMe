@@ -21,7 +21,7 @@ function Results({searchValues}) {
     )};
 
   return (
-    <div>
+    <div className="organizationResult">
         <label className="organizationResultTitle">Here are the resources that best meet your specific needs:</label>
         <br />
         <img className="spotlightImg" src={spotlightIcon} alt="spotlight"/>

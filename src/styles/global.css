@@ -113,6 +113,11 @@ h1 {
   text-align: center;
 }
 
+.organizationResult {
+  padding: 20px;
+  margin: 20px;
+}
+
 .organizationResultTitle {
   font-style: normal;
   font-weight: 600;
@@ -137,7 +142,8 @@ h1 {
 .organization {
   background: #FAEDE7;
   padding: 20px;
-  margin: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .organizationName {
