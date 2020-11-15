@@ -1,0 +1,242 @@
+{
+  "cities" : [ "Toronto", "Ottawa", "North York", "York", "Brampton" ],
+  "cost" : [ "Free", "Paid", "Covered by OHIP", "Accepts Insurance" ],
+  "languages" : [ "English", "French", "Spanish" ],
+  "organizations" : [ {
+    "address" : {
+      "city" : "Toronto",
+      "postalCode" : "M6E 2T5",
+      "province" : "ON",
+      "streetAddress" : "51 Clarkson Avenue"
+    },
+    "contact" : {
+      "email" : "info@acrossboundaries.ca",
+      "phone" : "(416) 787- 3007",
+      "web" : "https://www.acrossboundaries.ca/"
+    },
+    "cost" : [ "Free" ],
+    "languages" : [ "English" ],
+    "name" : "Across Boundaries",
+    "population" : [ "2SLGBTQ+" ],
+    "services" : [ "Peer Support" ],
+    "spotlight" : false
+  }, {
+    "address" : {
+      "city" : "Toronto",
+      "postalCode" : "M6E 2T5",
+      "province" : "ON",
+      "streetAddress" : "51 Clarkson Avenue"
+    },
+    "contact" : {
+      "email" : "languages@accessalliance.ca",
+      "phone" : "416-324-8677",
+      "web" : "https://accessalliance.ca/"
+    },
+    "cost" : [ "Paid" ],
+    "languages" : [ "French" ],
+    "name" : "Access Alliance",
+    "population" : [ "Newcomers/Immigrants" ],
+    "services" : [ "Counselling" ],
+    "spotlight" : false
+  }, {
+    "address" : {
+      "city" : "Toronto",
+      "postalCode" : "N/A",
+      "province" : "ON",
+      "streetAddress" : "465 Dundas Street East"
+    },
+    "contact" : {
+      "email" : "info@regentparkchc.org",
+      "phone" : "(416) 364-2261",
+      "web" : "http://www.regentparkchc.org/"
+    },
+    "cost" : [ "Paid", "Covered by OHIP" ],
+    "languages" : [ "English", "French" ],
+    "name" : "Regent Park Community Health Centre",
+    "population" : [ "Newcomers/Immigrants" ],
+    "services" : [ "Crisis Support", "Individual Counselling", "Peer Support" ],
+    "spotlight" : false
+  }, {
+    "address" : {
+      "city" : "York",
+      "postalCode" : "N/A",
+      "province" : "ON",
+      "streetAddress" : "1844 Weston Road"
+    },
+    "contact" : {
+      "email" : "info@frontlines.to",
+      "phone" : "(416) 244-7017",
+      "web" : "http://frontlines.to"
+    },
+    "cost" : [ "Accepts Insurance" ],
+    "languages" : [ "English", "French", "Spanish" ],
+    "name" : "Frontlines",
+    "population" : [ "Black-led" ],
+    "services" : [ "Counselling", "Peer Support" ],
+    "spotlight" : true
+  }, {
+    "address" : {
+      "city" : "North York",
+      "postalCode" : "N/A",
+      "province" : "ON",
+      "streetAddress" : "4929 Jane Street"
+    },
+    "contact" : {
+      "email" : "info@africanfoodbasket.ca",
+      "phone" : "647-896-0641",
+      "web" : "https://africanfoodbasket.ca"
+    },
+    "cost" : [ "Free", "Paid" ],
+    "languages" : [ "English" ],
+    "name" : "Afri-Can Food Basket",
+    "population" : [ "Black-led" ],
+    "services" : [ "Individual Counselling" ],
+    "spotlight" : true
+  }, {
+    "address" : {
+      "city" : "Toronto",
+      "postalCode" : "N/A",
+      "province" : "ON",
+      "streetAddress" : "1761 Sheppard Avenue"
+    },
+    "contact" : {
+      "email" : "info@tubmancommunity.org",
+      "phone" : "(416) 496-2042",
+      "web" : "https://www.tubmancommunity.org"
+    },
+    "cost" : [ "Covered by OHIP", "Accepts Insurance" ],
+    "languages" : [ "French" ],
+    "name" : "Harriet Tubman Community Organization",
+    "population" : [ "Black-led" ],
+    "services" : [ "Peer Support" ],
+    "spotlight" : true
+  }, {
+    "address" : {
+      "city" : "Brampton",
+      "postalCode" : "N/A",
+      "province" : "ON",
+      "streetAddress" : "4316 Ebenezer Road"
+    },
+    "contact" : {
+      "email" : "info@hopecministries.com",
+      "phone" : "(905) 487-4673",
+      "web" : "www.hopecministries.com"
+    },
+    "cost" : [ "Covered by OHIP", "Free" ],
+    "languages" : [ "English", "French" ],
+    "name" : "Hope Christian Ministries",
+    "population" : [ "Black-led", "Faith-based" ],
+    "services" : [ "Counselling" ],
+    "spotlight" : true
+  }, {
+    "address" : {
+      "city" : "North York",
+      "postalCode" : "N/A",
+      "province" : "ON",
+      "streetAddress" : "99 Arrow Road"
+    },
+    "contact" : {
+      "email" : "Info@cafcan.org",
+      "phone" : "(416) 740-1056",
+      "web" : "https://cafcan.org/"
+    },
+    "cost" : [ "Accepts Insurance", "Paid" ],
+    "languages" : [ "English", "French", "Spanish" ],
+    "name" : "Caribbean African Canadian Social Services",
+    "population" : [ "Black-led" ],
+    "services" : [ "Counselling" ],
+    "spotlight" : true
+  }, {
+    "address" : {
+      "city" : "Toronto",
+      "postalCode" : "M4C 1M3",
+      "province" : "ON",
+      "streetAddress" : "2899 Danforth Ave"
+    },
+    "contact" : {
+      "email" : "info@bangladeshi.ca",
+      "phone" : "(416) 699-4484",
+      "web" : "https://www.bangladeshi.ca/"
+    },
+    "cost" : [ "Free", "Paid" ],
+    "languages" : [ "English" ],
+    "name" : "Bangladeshi-Canadian Community Services",
+    "population" : [ "Newcomers/Immigrants" ],
+    "services" : [ "Peer Support" ],
+    "spotlight" : false
+  }, {
+    "address" : {
+      "city" : "Toronto",
+      "postalCode" : "M4R 1B9",
+      "province" : "ON",
+      "streetAddress" : "40 Orchard View Blvd"
+    },
+    "contact" : {
+      "email" : "info@skylarkyouth.org",
+      "phone" : "416-482-0081",
+      "web" : "skylarkyouth.org"
+    },
+    "cost" : [ "Free" ],
+    "languages" : [ "French" ],
+    "name" : "Skylark Children, Youth & Families",
+    "population" : [ "2SLGBTQ+" ],
+    "services" : [ "Counselling" ],
+    "spotlight" : false
+  }, {
+    "address" : {
+      "city" : "Toronto",
+      "postalCode" : "M4Y 2C9",
+      "province" : "ON",
+      "streetAddress" : "519 Church St"
+    },
+    "contact" : {
+      "email" : "Info@The519.org",
+      "phone" : "(416) 392-6874",
+      "web" : "https://www.the519.org/"
+    },
+    "cost" : [ "Paid" ],
+    "languages" : [ "English", "French" ],
+    "name" : "The 519",
+    "population" : [ "2SLGBTQ+", "Newcomers/Immigrants" ],
+    "services" : [ "Crisis Support", "Individual Counselling", "Peer Support" ],
+    "spotlight" : false
+  }, {
+    "address" : {
+      "city" : "Toronto",
+      "postalCode" : "N/A",
+      "province" : "ON",
+      "streetAddress" : "2010 Eglinton Ave West"
+    },
+    "contact" : {
+      "email" : "info@yorktownfamilyservices.com",
+      "phone" : "(416) 394-2424",
+      "web" : "www.yorktownfamilyservices.com"
+    },
+    "cost" : [ "Covered by OHIP" ],
+    "languages" : [ "English", "French", "Spanish" ],
+    "name" : "Yorktown Family Services",
+    "population" : [ "2SLGBTQ+" ],
+    "services" : [ "Counselling", "Peer Support" ],
+    "spotlight" : false
+  }, {
+    "address" : {
+      "city" : "Ottawa",
+      "postalCode" : "K2C 3B3",
+      "province" : "ON",
+      "streetAddress" : "1175 Soderlind St"
+    },
+    "contact" : {
+      "email" : "OurLady.Victory@ocsb.ca ",
+      "phone" : "(613) 828-5594",
+      "web" : "http://olv.ocsb.ca/"
+    },
+    "cost" : [ "Covered by OHIP", "Accepts Insurance", "Free", "Paid" ],
+    "languages" : [ "English" ],
+    "name" : "Our Lady of Victoria School",
+    "population" : [ "Faith-based" ],
+    "services" : [ "Crisis Support", "Individual Counselling", "Peer Support" ],
+    "spotlight" : false
+  } ],
+  "population" : [ "Faith-based", "Black-led", "2SLGBTQ+", "Newcomers/Immigrants" ],
+  "services" : [ "Peer Support", "Counselling", "Crisis Support", "Individual Counselling" ]
+}

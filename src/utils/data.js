@@ -1,44 +1,32 @@
-let cities = [
-    "Toronto", "Ottawa", "North York", "York", "Brampton"
-];
+import firebase from "gatsby-plugin-firebase";
+
+export function getFromFirebase(key) {
+    return firebase
+    .database()
+    .ref(`/${key}`)
+    .once("value")
+    .then(snapshot => snapshot.val());
+}
 
 export function getCities() {
-    return cities;
+    return getFromFirebase("cities")
 }
-
-let languages = [
-    "English", "French", "Spanish"
-];
-
 
 export function getLanguages() {
-    return languages;
+    return getFromFirebase("languages");
 }
-
-let cost = ["Free", "Paid", "Covered by OHIP", "Accepts Insurance"];
 
 export function getCost() {
-    return cost;
+    return getFromFirebase("cost")
 }
-
-
-let services = [
-    "Peer Support", "Counselling", "Crisis Support", "Individual Counselling"
-];
 
 export function getServices() {
-    return services;
+    return getFromFirebase("services");
 }
-
-
-let population = [
-    "Faith-based", "Black-led", "2SLGBTQ+", "Newcomers/Immigrants",
-];
 
 export function getPopulation() {
-    return population;
+    return getFromFirebase("population");;
 }
-
 
 // main data
 let organizations = [
@@ -231,66 +219,9 @@ let organizations = [
             email: "info@skylarkyouth.org",
             web: "skylarkyouth.org"
         }
-    },
-    {
-        name: "The 519",
-        cost: ["Paid"],        
-        languages: ["English", "French"],
-        services: ["Crisis Support", "Individual Counselling", "Peer Support"],
-        population: ["2SLGBTQ+", "Newcomers/Immigrants"],
-        spotlight: false,
-        address: {
-            city: "Toronto",
-            streetAddress: "519 Church St",
-            postalCode: "M4Y 2C9",
-            province: "ON"
-        },
-        contact: {
-            phone: "(416) 392-6874",
-            email: "Info@The519.org",
-            web: "https://www.the519.org/"
-        }
-    },
-    {
-        name: "Yorktown Family Services",
-        cost: ["Covered by OHIP"],        
-        languages: ["English", "French", "Spanish"],
-        services: ["Counselling", "Peer Support"],
-        population: ["2SLGBTQ+"],
-        spotlight: false,
-        address: {
-            city: "Toronto",
-            streetAddress: "2010 Eglinton Ave West",
-            postalCode: "N/A",
-            province: "ON"
-        },
-        contact: {
-            phone: "(416) 394-2424",
-            email: "info@yorktownfamilyservices.com",
-            web: "www.yorktownfamilyservices.com"
-        }
-    },
-    {
-        name: "Our Lady of Victoria School",
-        cost: ["Covered by OHIP", "Accepts Insurance", "Free", "Paid"],        
-        languages: ["English"],
-        services: ["Crisis Support", "Individual Counselling", "Peer Support"],
-        population: ["Faith-based"],
-        spotlight: false,
-        address: {
-            city: "Ottawa",
-            streetAddress: "1175 Soderlind St",
-            postalCode: "K2C 3B3",
-            province: "ON"
-        },
-        contact: {
-            phone: "(613) 828-5594",
-            email: "OurLady.Victory@ocsb.ca ",
-            web: "http://olv.ocsb.ca/"
-        }
     }
-
 ];
+
 
 export function getOrganizations() {
     return organizations;
