@@ -1,6 +1,6 @@
-import React from 'react';
-
-const { Component } = require("react");
+import React, {Component} from 'react';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 
 class Organization extends Component {
     
@@ -9,19 +9,21 @@ class Organization extends Component {
     }
     
     render = () => 
-        <div className="organization">
-            <label htmlFor="name">{this.props.name}</label>
-            <br />
-            { this.props.isSpotlight ? <img src ="../../static/favicon.ico"/> : null }
-            <br />
-            <label htmlFor="services">{this.props.services.join(", ")}</label>
-            <br />
-            <label htmlFor="email">{this.props.email}</label>
-            <br />
-            <label htmlFor="phone">{this.props.phone}</label>
-            <br />
-            <button htmlFor="website">{this.props.website}</button>
-        </div>
+        <Card style={{ backgroundColor: "#FAEDE7", width: "400px" }}>
+            <CardContent>
+                <label htmlFor="name">{this.props.name}</label>
+                <br />
+                { this.props.isSpotlight ? <img src ="../../static/favicon.ico"/> : null }
+                <br />
+                <label htmlFor="services">{this.props.services.join(", ")}</label>
+                <br />
+                <label htmlFor="email">{this.props.email}</label>
+                <br />
+                <label htmlFor="phone">{this.props.phone}</label>
+                <br />
+                <button htmlFor="website">{this.props.website}</button>
+            </CardContent>
+        </Card>
 }
 
 export default Organization;
