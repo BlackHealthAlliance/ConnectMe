@@ -51,16 +51,12 @@ export function QuestionMulitple({id, headerText, optionsArray, onClickHandler, 
   const [ triggerRefresh, setTriggerRefresh ] = useState(false);
   const [ initialClear, setInitialClear ] = useState(true);
 
-  const clearData = () => {
-    setIsSelected(new Array(optionsArray.length))
-  };
-
   useEffect(() => {
     if (initialClear) {
-      clearData();
+      setIsSelected(new Array(optionsArray.length))
       setInitialClear(false);
     }
-  }, [triggerRefresh, initialClear, clearData]);
+  }, [triggerRefresh, initialClear, optionsArray.length]);
 
   const handleInputChange = (index) => {
     const newValues = isSelected;
@@ -93,8 +89,7 @@ export function QuestionMulitple({id, headerText, optionsArray, onClickHandler, 
   }
 
   const handleNext = () => {
-    const values = getValues();
-    console.log(values)
+    let values = getValues();
     let skip = false;
     if (values.length < 1) {
       values = null;
@@ -117,7 +112,7 @@ export function QuestionMulitple({id, headerText, optionsArray, onClickHandler, 
       <br />
       <button
           className="nextButton"
-          onClick={() => handleNext()} >Next</button>
+          onClick={() => handleNext()}>Next</button>
           <br />
       <button className="skipButton" onClick={() => handleSkip()}>Skip</button>
     </div>
