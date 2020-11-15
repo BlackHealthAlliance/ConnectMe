@@ -28,8 +28,8 @@ function Search({ dispatch }) {
     setQuestionAnswers(updatedAnswers);
   }
 
-  const onClickToNextQuestion = (id, value, nextId, ) => {
-    updateAnswers(id, value);
+  const onClickToNextQuestion = (id, value, nextId, skip ) => {
+    if (!skip) updateAnswers(id, value);
     setCurrentQuestion(nextId);
   };
 
