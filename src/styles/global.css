@@ -151,7 +151,7 @@ h1 {
   padding: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
-  width: 400px;
+  min-width: 400px;
 }
 
 .organizationName {
@@ -177,7 +177,7 @@ h1 {
 }
 
 .verticalCenterContainer {
-  display: flex;
+  display: block;
   margin-bottom: 5px;
 }
 
@@ -212,4 +212,20 @@ h1 {
 
 .organizationContainer > * {
   margin: 10px 10px;
+}
+
+.organizationHeader {
+  margin-bottom: 10px;
+}
+
+.organizationBody {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.organizationColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
