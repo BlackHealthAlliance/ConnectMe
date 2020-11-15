@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { BsStarFill } from 'react-icons/bs';
+import { GoLocation } from "react-icons/go";
 import spotlightIcon from "../assets/spotlight-4.png";
-
+import { HiOutlineMail } from "react-icons/hi";
+import { FiPhone } from "react-icons/fi";
 class Organization extends Component {
     
     constructor(props) {
@@ -17,13 +19,13 @@ class Organization extends Component {
             <br /><br />
             <label className="organizationInfo" htmlFor="services">{this.props.services.join(", ")}</label>
             <br /><br />
-            <label className="organizationInfo">Location: </label>
+            <GoLocation />
             <label className="organizationInfo" htmlFor="location">{this.props.location}</label>
             <br />
-            <label className="organizationInfo">Email: </label>
+            <HiOutlineMail />
             <label className="organizationInfo" htmlFor="email">{this.props.email}</label>
             <br />
-            <label className="organizationInfo">Phone: </label>
+            <FiPhone />
             <label className="organizationInfo" htmlFor="phone">{this.props.phone}</label>
             <a href="{this.props.website}" target="_blank">
                 <input className="organizationWebsite" type="button" value="take me to their site" />
