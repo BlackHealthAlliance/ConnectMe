@@ -14,11 +14,11 @@ import { getOrganizations } from "./data";
  */
 export function searchOrganizations(searchCriteria) {
     return getOrganizations().filter( org => 
-        contains(searchCriteria.city, org.address.city) && 
-        contains(org.cost, searchCriteria.cost) &&
+        anyMatch(searchCriteria.city, org.address.city) && 
+        anyMatch(org.cost, searchCriteria.cost) &&
         anyMatch(org.services, searchCriteria.serviceOffered) &&
         anyMatch(org.population, searchCriteria.populationServed) &&
-        contains(org.languages, searchCriteria.languageProvided)
+        anyMatch(org.languages, searchCriteria.languageProvided)
     );
 }
 

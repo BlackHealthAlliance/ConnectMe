@@ -51,16 +51,16 @@ export function QuestionMulitple({id, headerText, optionsArray, onClickHandler, 
   const [ triggerRefresh, setTriggerRefresh ] = useState(false);
   const [ initialClear, setInitialClear ] = useState(true);
 
+  const clearData = () => {
+    setIsSelected(new Array(optionsArray.length))
+  };
+
   useEffect(() => {
     if (initialClear) {
       clearData();
       setInitialClear(false);
     }
-  }, [triggerRefresh, initialClear]);
-
-  const clearData = () => {
-    setIsSelected(new Array(optionsArray.length))
-  };
+  }, [triggerRefresh, initialClear, clearData]);
 
   const handleInputChange = (index) => {
     const newValues = isSelected;
@@ -94,8 +94,19 @@ export function QuestionMulitple({id, headerText, optionsArray, onClickHandler, 
 
   const handleNext = () => {
     const values = getValues();
+    console.log(values)
+    let skip = false;
+    if (values.length < 1) {
+      values = null;
+      skip = true;
+    }
     setInitialClear(true);
-    onClickHandler(id, values, next);
+    onClickHandler(id, values, next, skip);
+  }
+
+  const handleSkip = () => {
+    setInitialClear(true);
+    onClickHandler(id, null, next, true);
   }
 
   return (
@@ -103,11 +114,12 @@ export function QuestionMulitple({id, headerText, optionsArray, onClickHandler, 
       <Header headerText={headerText} />
       { options }
       <br />
+      <br />
       <button
           className="nextButton"
           onClick={() => handleNext()} >Next</button>
           <br />
-      <button className="skipButton" onClick={() => handleNext()}>Skip</button>
+      <button className="skipButton" onClick={() => handleSkip()}>Skip</button>
     </div>
   )
 }
