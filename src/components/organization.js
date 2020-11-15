@@ -37,7 +37,6 @@ class Organization extends Component {
                     </div>
                 </div>
                 <div className="organizationColumn">
-                    <div className=""></div>
                     <a href={this.props.website} target="_blank">
                         <input className="organizationWebsite" type="button" value="take me to their site" />
                     </a>
