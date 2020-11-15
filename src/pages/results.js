@@ -15,7 +15,7 @@ function Results({searchValues}) {
         return <Organization key={key} name={nextOrg.name} 
                             isSpotlight={nextOrg.spotlight}
                             services={nextOrg.services}
-                            location={address.streetAddress}
+                            location={address.streetAddress.concat(", ", address.city, ", ", address.province)}
                             email={contact.email}
                             phone={contact.phone}
                             website={contact.web} />
