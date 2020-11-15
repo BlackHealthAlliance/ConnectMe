@@ -113,6 +113,27 @@ h1 {
   text-align: center;
 }
 
+.organizationResultTitle {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 60px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+
+.organizationResultDescription {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
 .organization {
   background: #FAEDE7;
   padding: 20px;
@@ -137,6 +158,11 @@ h1 {
 }
 
 .spotlightImg {
+  width: 30px;
+  height: 26px;
+}
+
+.spotlightImgRight {
   width: 30px;
   height: 26px;
   float: right;

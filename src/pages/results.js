@@ -2,6 +2,7 @@ import React from "react"
 
 import { connect } from "react-redux"
 import Organization from "../components/organization"
+import spotlightIcon from "../assets/spotlight-4.png";
 
 function Results({searchValues}) {
 
@@ -21,6 +22,10 @@ function Results({searchValues}) {
 
   return (
     <div>
+        <label className="organizationResultTitle">Here are the resources that best meet your specific needs:</label>
+        <br />
+        <img className="spotlightImg" src={spotlightIcon} alt="spotlight"/>
+        <label className="organizationResultDescription">These are our top recommendations</label>
         <div className="organizationContainer">
             { 
                 createOrganizationCells()
