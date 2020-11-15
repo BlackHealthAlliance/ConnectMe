@@ -13,7 +13,6 @@ export default function Entry() {
   return (
     <center>
       <img src={PTCLogo} alt="Pathways to Care" className="logo-header" />
-      <br />
       <h4>Looking for safe and culturally competent care for yourself or a loved one? <br />
         ConnectMe links Black children and youth to nearby mental health services.</h4>
       <br />
