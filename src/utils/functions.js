@@ -14,9 +14,9 @@ import { getOrganizations } from "./data";
  */
 export function searchOrganizations(searchCriteria) {
     return getOrganizations().filter( org => 
-        isMatch(searchCriteria.city, org.address.city) && 
+        contains(searchCriteria.city, org.address.city) && 
         contains(org.cost, searchCriteria.cost) &&
-        contains(org.services, searchCriteria.serviceOffered) &&
+        anyMatch(org.services, searchCriteria.serviceOffered) &&
         anyMatch(org.population, searchCriteria.populationServed) &&
         contains(org.languages, searchCriteria.languageProvided)
     );
@@ -27,7 +27,7 @@ function isMatch(val1, val2) {
 }
 
 function contains(arr, val) {
-    return isUnDefined(val) || arr.find( elem => elem.toUpperCase() === val.toUpperCase());
+    return isUnDefined(val) || isUnDefined(arr) || arr.find( elem => elem.toUpperCase() === val.toUpperCase());
 }
 
 function anyMatch(arr1, arr2) {
