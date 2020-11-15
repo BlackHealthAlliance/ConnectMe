@@ -27,7 +27,7 @@ class Organization extends Component {
             <br />
             <FiPhone className="organizationContactIcon"/>
             <label className="organizationInfo" htmlFor="phone">{this.props.phone}</label>
-            <a href="{this.props.website}" target="_blank">
+            <a href={this.props.website} target="_blank">
                 <input className="organizationWebsite" type="button" value="take me to their site" />
             </a>
         </div>
