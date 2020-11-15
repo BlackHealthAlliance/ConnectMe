@@ -32,8 +32,6 @@ function Search({ dispatch }) {
 
   const onClickToResults = async (id, value, nextId, skip) => {
     if (!skip) { updateAnswers(id, value) }
-    console.log(questionAnswers)
-    // const results = searchOrganizations(questionAnswers);
     dispatch(saveSearchValues(Object.assign({}, questionAnswers)));
     navigate('/results/');
   }
