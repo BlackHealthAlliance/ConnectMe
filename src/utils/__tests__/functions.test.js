@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import {searchFunction, searchOrganizations} from '../functions';
-import {getCIties, getLanguages} from '../data';
-=======
 import {searchOrganizations} from '../functions';
 import {getLanguages, getCities} from '../data';
->>>>>>> search
 
 describe('functions - searchFunction', () => {
   beforeEach(() => {
@@ -25,16 +20,17 @@ describe('functions - searchFunction', () => {
   
   test('It should return a list of organization when matched by city', () => {
     const searchCriteria = {
-      city: 'Toronto'
+      city: ['York', 'north York']
     };
 
     const organizations = searchOrganizations(searchCriteria);
-    expect(organizations.length).toEqual(2);
+    expect(organizations.length).toEqual(3);
+    expect(organizations[0].name).toEqual('Frontlines');
   })  
 
   test('It should return an empty list if not found', () => {
     const searchCriteria = {
-      city: 'Nowhere'
+      city: ['Nowhere']
     };
 
     const organizations = searchOrganizations(searchCriteria);
@@ -47,18 +43,38 @@ describe('functions - searchFunction', () => {
     };
 
     const organizations = searchOrganizations(searchCriteria);
-    expect(organizations.length).toEqual(1);
+    expect(organizations.length).toEqual(7);
     expect(organizations[0].name).toEqual('Access Alliance');
   })
 
   test('It should return a list of organization when matched by services', () => {
     const searchCriteria = {
-      serviceOffered: 'peer support'
+      serviceOffered: ['crisis support']
     };
 
     const organizations = searchOrganizations(searchCriteria);
-    expect(organizations.length).toEqual(1);
-    expect(organizations[0].name).toEqual('Across Boundaries');
+    expect(organizations.length).toEqual(3);
+    expect(organizations[2].name).toEqual('Our Lady of Victoria School');
+  })
+
+  test('It should return a list of organization when matched by population', () => {
+    const searchCriteria = {
+      populationServed: ["2SLGBTQ+", "Newcomers/Immigrants"]
+    };
+
+    const organizations = searchOrganizations(searchCriteria);
+    expect(organizations.length).toEqual(7);
+    expect(organizations[2].name).toEqual('Regent Park Community Health Centre');
+  })
+
+  test('It should return a list of organization when matched by language', () => {
+    const searchCriteria = {
+      languageProvided: "French"
+    };
+
+    const organizations = searchOrganizations(searchCriteria);
+    expect(organizations.length).toEqual(9);
+    expect(organizations[3].name).toEqual('Harriet Tubman Community Organization');
   })
 
 });

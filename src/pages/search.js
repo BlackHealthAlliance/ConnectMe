@@ -1,17 +1,25 @@
 import React, { useState } from "react"
-import { navigate } from '@reach/router';
+import { navigate } from 'gatsby';
 import { connect } from "react-redux"
 
 import { saveSearchValues } from '../state/app';
 
-import Question, { QuestionDropdown, QuestionCheckbox } from "../components/question";
+import Question, { QuestionMulitple } from "../components/question";
 
 import { searchOrganizations } from "../utils/functions";
+import {
+  getCities,
+  getLanguages,
+  getInsurance,
+  getServices,
+  getPopulation,
+  getCost,
+  getLengthOfService } from "../utils/data"
 
 function Search({ dispatch }) {
   
-  const [questionAnswers, setQuestionAnswers] = useState(new Array(3));
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [questionAnswers, setQuestionAnswers] = useState({});
+  const [currentQuestion, setCurrentQuestion] = useState("city");
 
   const updateAnswers = (id, value) => {
     const updatedAnswers = questionAnswers;
@@ -19,59 +27,77 @@ function Search({ dispatch }) {
     setQuestionAnswers(updatedAnswers);
   }
 
-  const onClickToNextQuestion = (id, value, nextId) => {
+  const onClickToNextQuestion = (id, value, nextId, ) => {
     updateAnswers(id, value);
     setCurrentQuestion(nextId);
   };
 
-  const onClickToResults = (id, value) => {
+  const onClickToResults = async (id, value) => {
     updateAnswers(id, value);
-    searchOrganizations({
-      servicesOffered: questionAnswers[0]
+    const results = searchOrganizations({
+      servicesOffered: questionAnswers
     })
-    dispatch(saveSearchValues(Object.assign({}, questionAnswers)));
-    navigate('/results');
+    dispatch(saveSearchValues(Object.assign({}, results)));
+    navigate('/results/');
   }
 
   const getCurrentQuestion = () => {
     let questionComponent;
     switch(currentQuestion) {
-      case 0:
+      case "city":
       default:
-        questionComponent = (<Question
-          id={0}
+        questionComponent = (<QuestionMulitple
+          id={currentQuestion}
+          headerText="What area(s) are you looking for services in? (select all that apply)"
+          optionsArray={getCities()}
+          next="services"
+          onClickHandler={onClickToNextQuestion}/>);
+        break;
+      case "services":
+        questionComponent = (<QuestionMulitple
+          id={currentQuestion}
           headerText="What type of service are you looking for?"
-          optionsArray={[
-            "Crisis Support",
-            "Individual Counselling",
-            "Peer Counselling"
-          ]}
-          next={1}
+          optionsArray={getServices()}
+          next="cost"
           onClickHandler={onClickToNextQuestion}/>);
         break;
-      case 1:
+      case "cost":
         questionComponent = (<Question
-          id={1}
+          id={currentQuestion}
+          headerText="What are your budgetary needs?"
+          optionsArray={getCost()}
+          next="length"
+          onClickHandler={onClickToNextQuestion}/>);
+        break;
+      case "length":
+        questionComponent = (<Question
+          id={currentQuestion}
+          headerText="How long do you want the services to be?"
+          optionsArray={getLengthOfService()}
+          next="resource"
+          onClickHandler={onClickToNextQuestion}/>);
+        break;
+      case "resource":
+        questionComponent = (<Question
+          id={currentQuestion}
           headerText="Which type of resource would you prefer?"
-          optionsArray={[
-            "Free",
-            "Paid",
-            "Covered by OHIP",
-            "Accepts Insurance"
-          ]}
-          next={2}
+          optionsArray={getInsurance()}
+          next="languages"
           onClickHandler={onClickToNextQuestion}/>);
         break;
-      case 2:
+      case "languages":
         questionComponent = (<Question
-          id={2}
-          headerText="How would you like services to be offered?"
-          optionsArray={[
-            "In Person",
-            "Online/Virtually",
-            "Both"
-          ]}
-          next={0}
+          id={currentQuestion}
+          headerText="What language would you prefer services to be offered in?"
+          optionsArray={getLanguages()}
+          next="population"
+          onClickHandler={onClickToNextQuestion}/>);
+        break;
+      case "population":
+        questionComponent = (<QuestionMulitple
+          id={currentQuestion}
+          headerText="Are you looking for resources that serve any of the following populations? (select all that apply)"
+          optionsArray={getPopulation()}
           onClickHandler={onClickToResults}/>);
         break;
     }
