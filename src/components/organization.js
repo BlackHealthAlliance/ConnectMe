@@ -11,9 +11,10 @@ class Organization extends Component {
     
     render = () => 
         <div className="organization">
-            <label className="organizationName" htmlFor="name">{this.props.name}</label>
-            <br />
-            { this.props.isSpotlight ? <img className="spotlightImg" src={spotlightIcon} alt="Pathways to Care"/> : null }
+            <div>
+                <label className="organizationName" htmlFor="name">{this.props.name}</label>
+                { this.props.isSpotlight ? <img className="spotlightImg" src={spotlightIcon} alt="Pathways to Care"/> : null }
+            </div>
             <br />
             <label className="organizationInfo" htmlFor="services">{this.props.services.join(", ")}</label>
             <br />
