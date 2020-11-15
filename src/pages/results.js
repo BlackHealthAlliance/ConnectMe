@@ -51,8 +51,14 @@ function Results({searchValues}) {
     <div className="organizationResult">
         <label className="organizationResultTitle">Here are the resources that best meet your specific needs:</label>
         <br />
-        <img className="spotlightImg" src={spotlightIcon} alt="spotlight"/>
+        <table>
+          <th>
+            <img className="spotlightImg" src={spotlightIcon} alt="spotlight"/>
+          </th>
+        <th>
         <label className="organizationResultDescription">These are our top recommendations</label>
+          </th>
+        </table>
         <div className="organizationContainer">
           { 
             createOrganizationCells()
