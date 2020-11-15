@@ -16,8 +16,6 @@ class Organization extends Component {
             <br />
             <label htmlFor="services">{this.props.services.join(", ")}</label>
             <br />
-            <label htmlFor="location">{this.props.location}</label>
-            <br />
             <label htmlFor="email">{this.props.email}</label>
             <br />
             <label htmlFor="phone">{this.props.phone}</label>
