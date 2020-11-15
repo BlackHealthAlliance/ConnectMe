@@ -172,6 +172,10 @@ h1 {
   color: #1F193E;
 }
 
+.organizationContactIcon {
+  margin-right: 5px;
+}
+
 .spotlightImg {
   width: 24px;
   height: 22px;
