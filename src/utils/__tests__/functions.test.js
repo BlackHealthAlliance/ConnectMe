@@ -39,7 +39,7 @@ describe('functions - searchFunction', () => {
 
   test('It should return a list of organization when matched by cost', () => {
     const searchCriteria = {
-      cost: 'pAid'
+      cost: ['pAid']
     };
 
     const organizations = searchOrganizations(searchCriteria);
@@ -69,12 +69,22 @@ describe('functions - searchFunction', () => {
 
   test('It should return a list of organization when matched by language', () => {
     const searchCriteria = {
-      languageProvided: "French"
+      languageProvided: ["French"]
     };
 
     const organizations = searchOrganizations(searchCriteria);
     expect(organizations.length).toEqual(9);
     expect(organizations[3].name).toEqual('Harriet Tubman Community Organization');
+  })
+
+  test('It should return a list of organization when matched by multiple criterias', () => {
+    const searchCriteria = {
+      languageProvided: ["French"],
+      cost: ["Paid"]
+    };
+
+    const organizations = searchOrganizations(searchCriteria);
+    expect(organizations.length).toEqual(4);
   })
 
 });
