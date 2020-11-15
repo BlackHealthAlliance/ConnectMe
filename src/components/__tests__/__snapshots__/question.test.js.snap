@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Question It should render a question 1`] = `
+<div
+  className="question"
+>
+  <h1>
+    Test question?
+  </h1>
+  <button
+    className="choiceButton"
+    onClick={[Function]}
+  >
+    option1
+  </button>
+  <button
+    className="choiceButton"
+    onClick={[Function]}
+  >
+    option2
+  </button>
+  <br />
+  <button
+    className="skipButton"
+    onClick={[Function]}
+  >
+    Skip
+  </button>
+</div>
+`;
