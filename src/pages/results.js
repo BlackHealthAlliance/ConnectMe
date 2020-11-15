@@ -4,17 +4,26 @@ import { connect } from "react-redux"
 import Organization from "../components/organization"
 import spotlightIcon from "../assets/spotlight-4.png";
 import { searchOrganizations } from "../utils/functions";
+import { navigate } from "gatsby";
 
 function Results({searchValues}) {
 
   const [searchResults, setSearchResults] = useState({});
+  const [showEverything, setShowEverything] = useState(false);
 
   useEffect(() => {
+    setShowEverything(false);
     setSearchResults(searchOrganizations(searchValues));
   }, [searchValues])
 
   const loadEverything = () => {
     setSearchResults(searchOrganizations({}))
+    setShowEverything(true);
+  }
+
+  const returnToSearch = () => {
+    setShowEverything(false);
+    navigate("/search/");
   }
 
   const createOrganizationCells = () => {
@@ -52,8 +61,9 @@ function Results({searchValues}) {
         <br />
         <br />
         <center>
-          <h2>Didn't find what you were looking for?</h2>
-          <button className="nextButton" onClick={loadEverything}>Browse all organizations</button>
+          {!showEverything && <h2>Didn't find what you were looking for?</h2>}
+          {!showEverything && <button className="nextButton" onClick={() => loadEverything()}>Browse all organizations</button>}
+          <button className="nextButton" onClick={() => returnToSearch()}>Try the search again</button>
         </center>
      </div>
   )

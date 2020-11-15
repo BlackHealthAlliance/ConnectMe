@@ -7,11 +7,9 @@ import { saveSearchValues } from '../state/app';
 import { QuestionMulitple } from "../components/question";
 import Banner from "../components/banner";
 
-import { searchOrganizations } from "../utils/functions";
 import {
   getCities,
   getLanguages,
-  getInsurance,
   getServices,
   getPopulation,
   getCost } from "../utils/data"

@@ -51,16 +51,12 @@ export function QuestionMulitple({id, headerText, optionsArray, onClickHandler, 
   const [ triggerRefresh, setTriggerRefresh ] = useState(false);
   const [ initialClear, setInitialClear ] = useState(true);
 
-  const clearData = () => {
-    setIsSelected(new Array(optionsArray.length))
-  };
-
   useEffect(() => {
     if (initialClear) {
-      clearData();
+      setIsSelected(new Array(optionsArray.length))
       setInitialClear(false);
     }
-  }, [triggerRefresh, initialClear, clearData]);
+  }, [triggerRefresh, initialClear, optionsArray.length]);
 
   const handleInputChange = (index) => {
     const newValues = isSelected;

@@ -26,7 +26,8 @@ h1 {
 }
 
 .logo {
-  position: absolute;
+  background: #F5EbE0;
+  position: fixed;
   width: 250px;
   bottom: 30px;
   left: 30px;
