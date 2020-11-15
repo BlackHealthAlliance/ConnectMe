@@ -150,6 +150,7 @@ h1 {
   padding: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
+  width: 400px;
 }
 
 .organizationName {
@@ -186,6 +187,8 @@ h1 {
   background: #DD8884;
   border-radius: 10px;
   float: right;
+  color: white;
+  border: none;
 }
 
 .organizationContainer {
