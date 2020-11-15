@@ -19,15 +19,15 @@ class Organization extends Component {
             <br /><br />
             <label className="organizationInfo" htmlFor="services">{this.props.services.join(", ")}</label>
             <br /><br />
-            <div className="organizationContactRow">
+            <div className="verticalCenterContainer">
                 <GoLocation className="organizationContactIcon"/>
                 <label className="organizationInfo" htmlFor="location">{this.props.location}</label>
             </div>
-            <div className="organizationContactRow">
+            <div className="verticalCenterContainer">
                 <HiOutlineMail className="organizationContactIcon"/>
                 <label className="organizationInfo" htmlFor="email">{this.props.email}</label>
             </div>
-            <div className="organizationContactRow">
+            <div className="verticalCenterContainer">
                 <FiPhone className="organizationContactIcon"/>
                 <label className="organizationInfo" htmlFor="phone">{this.props.phone}</label>
             </div>
