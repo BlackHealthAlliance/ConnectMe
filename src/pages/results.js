@@ -58,7 +58,7 @@ function Results({searchValues}) {
             <img className="spotlightImg" src={spotlightIcon} alt="spotlight"/>
           </th>
         <th>
-        <label className="organizationResultDescription">These are our top recommendations</label>
+        <label className="organizationResultDescription">A Star indicates services that are Black-led, Black-Serving, and Black-focused</label>
           </th>
         </table>
         <div className="organizationContainer">

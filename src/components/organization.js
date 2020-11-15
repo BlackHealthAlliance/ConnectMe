@@ -14,34 +14,35 @@ class Organization extends Component {
     
     render = () => 
         <div className="organization">
-            <label className="organizationName" htmlFor="name">{this.props.name}</label>
-            { this.props.isSpotlight ? <img className="spotlightImgRight" src={spotlightIcon} alt="spotlight"/> : null }
-            <br /><br />
-            <label className="organizationInfo" htmlFor="services">{this.props.services.join(", ")}</label>
-            <br /><br />
-            <table>
-                <tr>
-                    <td>
-                        <div className="verticalCenterContainer">
-                            <GoLocation className="organizationContactIcon"/>
-                            <label className="organizationInfo" htmlFor="location">{this.props.location}</label>
-                        </div>
-                        <div className="verticalCenterContainer">
-                            <HiOutlineMail className="organizationContactIcon"/>
-                            <label className="organizationInfo" htmlFor="email">{this.props.email}</label>
-                        </div>
-                        <div className="verticalCenterContainer">
-                            <FiPhone className="organizationContactIcon"/>
-                            <label className="organizationInfo" htmlFor="phone">{this.props.phone}</label>
-                        </div>
-                    </td>
-                    <td>
-                        <a href={this.props.website} target="_blank">
-                            <input className="organizationWebsite" type="button" value="take me to their site" />
-                        </a>
-                    </td>
-                </tr>
-            </table>
+            <div className="organizationHeader">
+                <div className="verticalCenterContainer">
+                    { this.props.isSpotlight ? <img className="spotlightImgRight" src={spotlightIcon} alt="spotlight"/> : null }
+                    <label className="organizationName" htmlFor="name">{this.props.name}</label>
+                </div>
+                <label className="organizationInfo" htmlFor="services">{this.props.services.join(", ")}</label>
+            </div>
+            <div className="organizationBody">
+                <div className="organizationColumn">
+                    <div className="verticalCenterContainer">
+                        <GoLocation className="organizationContactIcon"/>
+                        <label className="organizationInfo" htmlFor="location">{this.props.location}</label>
+                    </div>
+                    <div className="verticalCenterContainer">
+                        <HiOutlineMail className="organizationContactIcon"/>
+                        <label className="organizationInfo" htmlFor="email">{this.props.email}</label>
+                    </div>
+                    <div className="verticalCenterContainer">
+                        <FiPhone className="organizationContactIcon"/>
+                        <label className="organizationInfo" htmlFor="phone">{this.props.phone}</label>
+                    </div>
+                </div>
+                <div className="organizationColumn">
+                    <div className=""></div>
+                    <a href={this.props.website} target="_blank">
+                        <input className="organizationWebsite" type="button" value="take me to their site" />
+                    </a>
+                </div>
+            </div>
         </div>
         // <Card style={{ backgroundColor: "#FAEDE7", width: "400px" }}>
         //     <CardContent>
