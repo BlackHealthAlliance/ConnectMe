@@ -21,13 +21,6 @@ export function getCost() {
     return cost;
 }
 
-let insurance = [
-    "Takes private insurance", "No insurance necessary", "No OHIP card necessary", "Services covered by OHIP",
-];
-
-export function getInsurance() {
-    return insurance;
-}
 
 let services = [
     "Peer Support", "Counselling", "Crisis Support", "Individual Counselling"
@@ -46,12 +39,6 @@ export function getPopulation() {
     return population;
 }
 
-
-let lengthOfService = ["Crisis", "Short-term", "Long-term"];
-
-export function getLengthOfService() {
-    return lengthOfService;
-}
 
 // main data
 let organizations = [
