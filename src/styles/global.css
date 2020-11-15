@@ -5,6 +5,13 @@ html {
 
 h1 {
   font-size: 1.75em;
+  margin-bottom: 60px;
+}
+
+.banner {
+  padding: 15px;
+  margin-top: 0px;
+  margin-bottom: 100px;
 }
 
 .question {
@@ -12,14 +19,23 @@ h1 {
 }
 
 .questionWrapper {
-  padding-top: 100px;
+  padding-top: 15%;
   text-align: center;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.logo {
+  position: absolute;
+  width: 250px;
+  bottom: 30px;
+  left: 30px;
 }
 
 .choiceButton {
   font-size: 1.1em;
-  background-color: #933238;
-  color: white;
+  background-color: #D97B77;
+  color: #1F193E;
   padding: 1em;
   border-radius: 5px;
   border: none;
@@ -29,16 +45,17 @@ h1 {
 }
 
 .choiceButton:hover {
-  background-color: #D97B77;
+  background-color: #FCD6D6;
 }
 
 .selectedButton {
   font-size: 1.1em;
-  background-color: #1F193E;
-  color: white;
+  background-color: #933238;
+  color: #F9F6F0;
   padding: 1em;
   border-radius: 5px;
   border: none;
+  border-width: 2px;
   margin: 10px;
   cursor: pointer;
   font-weight: 500;

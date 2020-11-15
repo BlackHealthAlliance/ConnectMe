@@ -5,6 +5,7 @@ import { connect } from "react-redux"
 import { saveSearchValues } from '../state/app';
 
 import Question, { QuestionMulitple } from "../components/question";
+import Banner from "../components/banner";
 
 import { searchOrganizations } from "../utils/functions";
 import {
@@ -27,16 +28,15 @@ function Search({ dispatch }) {
     setQuestionAnswers(updatedAnswers);
   }
 
-  const onClickToNextQuestion = (id, value, nextId, ) => {
-    updateAnswers(id, value);
+  const onClickToNextQuestion = (id, value, nextId, skip ) => {
+    if (!skip) updateAnswers(id, value);
     setCurrentQuestion(nextId);
   };
 
   const onClickToResults = async (id, value) => {
     updateAnswers(id, value);
-    const results = searchOrganizations({
-      servicesOffered: questionAnswers
-    })
+    console.log(questionAnswers)
+    const results = searchOrganizations(questionAnswers);
     dispatch(saveSearchValues(Object.assign({}, results)));
     navigate('/results/');
   }
@@ -62,31 +62,15 @@ function Search({ dispatch }) {
           onClickHandler={onClickToNextQuestion}/>);
         break;
       case "cost":
-        questionComponent = (<Question
+        questionComponent = (<QuestionMulitple
           id={currentQuestion}
           headerText="What are your budgetary needs?"
           optionsArray={getCost()}
-          next="length"
-          onClickHandler={onClickToNextQuestion}/>);
-        break;
-      case "length":
-        questionComponent = (<Question
-          id={currentQuestion}
-          headerText="How long do you want the services to be?"
-          optionsArray={getLengthOfService()}
-          next="resource"
-          onClickHandler={onClickToNextQuestion}/>);
-        break;
-      case "resource":
-        questionComponent = (<Question
-          id={currentQuestion}
-          headerText="Which type of resource would you prefer?"
-          optionsArray={getInsurance()}
           next="languages"
           onClickHandler={onClickToNextQuestion}/>);
         break;
       case "languages":
-        questionComponent = (<Question
+        questionComponent = (<QuestionMulitple
           id={currentQuestion}
           headerText="What language would you prefer services to be offered in?"
           optionsArray={getLanguages()}
@@ -109,6 +93,7 @@ function Search({ dispatch }) {
       <center>
         { getCurrentQuestion() }
       </center>
+      <Banner />
     </div>
   )
 }
