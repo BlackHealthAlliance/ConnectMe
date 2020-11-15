@@ -19,21 +19,29 @@ class Organization extends Component {
             <br /><br />
             <label className="organizationInfo" htmlFor="services">{this.props.services.join(", ")}</label>
             <br /><br />
-            <div className="verticalCenterContainer">
-                <GoLocation className="organizationContactIcon"/>
-                <label className="organizationInfo" htmlFor="location">{this.props.location}</label>
-            </div>
-            <div className="verticalCenterContainer">
-                <HiOutlineMail className="organizationContactIcon"/>
-                <label className="organizationInfo" htmlFor="email">{this.props.email}</label>
-            </div>
-            <div className="verticalCenterContainer">
-                <FiPhone className="organizationContactIcon"/>
-                <label className="organizationInfo" htmlFor="phone">{this.props.phone}</label>
-            </div>
-            <a href={this.props.website} target="_blank">
-                <input className="organizationWebsite" type="button" value="take me to their site" />
-            </a>
+            <table>
+                <tr>
+                    <td>
+                        <div className="verticalCenterContainer">
+                            <GoLocation className="organizationContactIcon"/>
+                            <label className="organizationInfo" htmlFor="location">{this.props.location}</label>
+                        </div>
+                        <div className="verticalCenterContainer">
+                            <HiOutlineMail className="organizationContactIcon"/>
+                            <label className="organizationInfo" htmlFor="email">{this.props.email}</label>
+                        </div>
+                        <div className="verticalCenterContainer">
+                            <FiPhone className="organizationContactIcon"/>
+                            <label className="organizationInfo" htmlFor="phone">{this.props.phone}</label>
+                        </div>
+                    </td>
+                    <td>
+                        <a href={this.props.website} target="_blank">
+                            <input className="organizationWebsite" type="button" value="take me to their site" />
+                        </a>
+                    </td>
+                </tr>
+            </table>
         </div>
         // <Card style={{ backgroundColor: "#FAEDE7", width: "400px" }}>
         //     <CardContent>
