@@ -13,9 +13,9 @@ class Organization extends Component {
         <div className="organization">
             <label className="organizationName" htmlFor="name">{this.props.name}</label>
             { this.props.isSpotlight ? <img className="spotlightImgRight" src={spotlightIcon} alt="spotlight"/> : null }
-            <br />
+            <br /><br />
             <label className="organizationInfo" htmlFor="services">{this.props.services.join(", ")}</label>
-            <br />
+            <br /><br />
             <label className="organizationInfo">Location: </label>
             <label className="organizationInfo" htmlFor="location">{this.props.location}</label>
             <br />
