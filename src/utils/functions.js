@@ -13,13 +13,15 @@ import { getOrganizations } from "./data";
  * }
  */
 export function searchOrganizations(searchCriteria) {
-    return getOrganizations().filter( org => 
+    return getOrganizations()
+    .filter( org => 
         contains(searchCriteria.city, org.address.city) && 
         anyMatch(org.cost, searchCriteria.cost) &&
         anyMatch(org.services, searchCriteria.serviceOffered) &&
         anyMatch(org.population, searchCriteria.populationServed) &&
         anyMatch(org.languages, searchCriteria.languageProvided)
-    );
+    )
+    .sort( (a, b) => { return (a.spotlight === b.spotlight) ? 0 : a.spotlight ? -1 : 1});
 }
 
 function isMatch(val1, val2) {
