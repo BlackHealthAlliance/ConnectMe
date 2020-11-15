@@ -20,7 +20,9 @@ class Organization extends Component {
             <br />
             <label htmlFor="phone">{this.props.phone}</label>
             <br />
-            <button htmlFor="website">{this.props.website}</button>
+            <a href="{this.props.website}" target="_blank">
+                <input type="button" value="take me to their site" />
+            </a>
         </div>
 }
 
