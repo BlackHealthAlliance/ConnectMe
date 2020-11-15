@@ -93,8 +93,7 @@ export function QuestionMulitple({id, headerText, optionsArray, onClickHandler, 
   }
 
   const handleNext = () => {
-    const values = getValues();
-    console.log(values)
+    let values = getValues();
     let skip = false;
     if (values.length < 1) {
       values = null;
@@ -117,7 +116,7 @@ export function QuestionMulitple({id, headerText, optionsArray, onClickHandler, 
       <br />
       <button
           className="nextButton"
-          onClick={() => handleNext()} >Next</button>
+          onClick={() => handleNext()}>Next</button>
           <br />
       <button className="skipButton" onClick={() => handleSkip()}>Skip</button>
     </div>

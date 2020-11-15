@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 
 import { saveSearchValues } from '../state/app';
 
-import Question, { QuestionMulitple } from "../components/question";
+import { QuestionMulitple } from "../components/question";
 import Banner from "../components/banner";
 
 import { searchOrganizations } from "../utils/functions";
@@ -14,8 +14,7 @@ import {
   getInsurance,
   getServices,
   getPopulation,
-  getCost,
-  getLengthOfService } from "../utils/data"
+  getCost } from "../utils/data"
 
 function Search({ dispatch }) {
   
@@ -29,15 +28,15 @@ function Search({ dispatch }) {
   }
 
   const onClickToNextQuestion = (id, value, nextId, skip ) => {
-    if (!skip) updateAnswers(id, value);
+    if (!skip) { updateAnswers(id, value) };
     setCurrentQuestion(nextId);
   };
 
-  const onClickToResults = async (id, value) => {
-    updateAnswers(id, value);
+  const onClickToResults = async (id, value, nextId, skip) => {
+    if (!skip) { updateAnswers(id, value) }
     console.log(questionAnswers)
-    const results = searchOrganizations(questionAnswers);
-    dispatch(saveSearchValues(Object.assign({}, results)));
+    // const results = searchOrganizations(questionAnswers);
+    dispatch(saveSearchValues(Object.assign({}, questionAnswers)));
     navigate('/results/');
   }
 

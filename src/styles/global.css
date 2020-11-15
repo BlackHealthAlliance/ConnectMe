@@ -32,10 +32,15 @@ h1 {
   left: 30px;
 }
 
+.logo-header {
+  padding-top: 15%;
+  padding-bottom: 2em;
+}
+
 .choiceButton {
   font-size: 1.1em;
   background-color: #D97B77;
-  color: #1F193E;
+  color: black;
   padding: 1em;
   border-radius: 5px;
   border: none;
