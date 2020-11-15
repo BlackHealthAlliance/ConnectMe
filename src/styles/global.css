@@ -115,6 +115,8 @@ h1 {
 
 .organization {
   background: #FAEDE7;
+  padding: 20px;
+  margin: 20px;
 }
 
 .organizationName {
@@ -135,8 +137,8 @@ h1 {
 }
 
 .spotlightImg {
-  width: 60px;
-  height: 52px;
+  width: 30px;
+  height: 26px;
   float: right;
 }
 
