@@ -17,17 +17,17 @@ function Results({searchValues}) {
   }, [searchValues])
 
   const loadEverything = () => {
-    setSearchResults(searchOrganizations({}))
+    setSearchResults(searchOrganizations({}));
     setShowEverything(true);
   }
 
   const returnToSearch = () => {
     setShowEverything(false);
+    setSearchResults(searchOrganizations({}));
     navigate("/search/");
   }
 
   const createOrganizationCells = () => {
-
     if (Object.keys(searchResults).length < 1) {
       loadEverything();
     }
