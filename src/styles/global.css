@@ -139,3 +139,11 @@ h1 {
   height: 52px;
   float: right;
 }
+
+.organizationWebsite {
+  width: 147px;
+  height: 38px;
+  background: #DD8884;
+  border-radius: 10px;
+  float: right;
+}
